@@ -1,0 +1,86 @@
+# USFM code, app id, canon group, label
+GEN,gen,ot,Genesis
+EXO,exod,ot,Exodus
+LEV,lev,ot,Leviticus
+NUM,num,ot,Numbers
+DEU,deut,ot,Deuteronomy
+JOS,josh,ot,Joshua
+JDG,judg,ot,Judges
+RUT,ruth,ot,Ruth
+1SA,1sam,ot,1 Samuel
+2SA,2sam,ot,2 Samuel
+1KI,1kgs,ot,1 Kings
+2KI,2kgs,ot,2 Kings
+1CH,1chr,ot,1 Chronicles
+2CH,2chr,ot,2 Chronicles
+EZR,ezra,ot,Ezra
+NEH,neh,ot,Nehemiah
+EST,esth,ot,Esther
+JOB,job,ot,Job
+PSA,ps,ot,Psalms
+PRO,prov,ot,Proverbs
+ECC,eccl,ot,Ecclesiastes
+SNG,song,ot,Song of Solomon
+ISA,isa,ot,Isaiah
+JER,jer,ot,Jeremiah
+LAM,lam,ot,Lamentations
+EZK,ezek,ot,Ezekiel
+DAN,dan,ot,Daniel
+HOS,hos,ot,Hosea
+JOL,joel,ot,Joel
+AMO,amos,ot,Amos
+OBA,obad,ot,Obadiah
+JON,jonah,ot,Jonah
+MIC,mic,ot,Micah
+NAM,nah,ot,Nahum
+HAB,hab,ot,Habakkuk
+ZEP,zeph,ot,Zephaniah
+HAG,hag,ot,Haggai
+ZEC,zech,ot,Zechariah
+MAL,mal,ot,Malachi
+MAT,matt,nt,Matthew
+MRK,mark,nt,Mark
+LUK,luke,nt,Luke
+JHN,john,nt,John
+ACT,acts,nt,Acts
+ROM,rom,nt,Romans
+1CO,1cor,nt,1 Corinthians
+2CO,2cor,nt,2 Corinthians
+GAL,gal,nt,Galatians
+EPH,eph,nt,Ephesians
+PHP,phil,nt,Philippians
+COL,col,nt,Colossians
+1TH,1thess,nt,1 Thessalonians
+2TH,2thess,nt,2 Thessalonians
+1TI,1tim,nt,1 Timothy
+2TI,2tim,nt,2 Timothy
+TIT,titus,nt,Titus
+PHM,phlm,nt,Philemon
+HEB,heb,nt,Hebrews
+JAS,jas,nt,James
+1PE,1pet,nt,1 Peter
+2PE,2pet,nt,2 Peter
+1JN,1john,nt,1 John
+2JN,2john,nt,2 John
+3JN,3john,nt,3 John
+JUD,jude,nt,Jude
+REV,rev,nt,Revelation
+TOB,tob,apoc,Tobit
+JDT,jdt,apoc,Judith
+ESG,addesth,apoc,Additions to Esther
+WIS,wis,apoc,Wisdom of Solomon
+SIR,sir,apoc,Sirach (Ecclesiasticus)
+BAR,bar,apoc,Baruch
+LJE,epjer,apoc,Letter of Jeremiah
+S3Y,sg3,apoc,Prayer of Azariah and Song of the Three Children
+SUS,sus,apoc,Susanna
+BEL,bel,apoc,Bel and the Dragon
+1MA,1macc,apoc,1 Maccabees
+2MA,2macc,apoc,2 Maccabees
+3MA,3macc,apoc,3 Maccabees
+4MA,4macc,apoc,4 Maccabees
+1ES,1esd,apoc,1 Esdras
+2ES,2esd,apoc,2 Esdras
+MAN,prman,apoc,Prayer of Manasseh
+PS2,ps151,apoc,Psalm 151
+LAO,laod,apoc,Laodiceans

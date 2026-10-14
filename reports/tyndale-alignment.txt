@@ -1,0 +1,4 @@
+﻿john : source 8:15 covers KJV 8:15..8:16
+john : source 8:43..8:44 merged into KJV 8:44
+john : source 18:5..18:6 merged into KJV 18:5
+john : source 18:35 covers KJV 18:34..18:35

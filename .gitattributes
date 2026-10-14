@@ -1,0 +1,2 @@
+# Packs are served byte-for-byte; the app verifies their SHA-256 checksums.
+*.json -text

@@ -1,0 +1,5 @@
+# intermediate files, rebuilt by the scripts in scripts/
+neutral/
+aligned/
+reports/kjv-*.tsv
+reports/kjv-keys.txt
