@@ -4,6 +4,7 @@ moved 65 verses from dan to sus
 moved 42 verses from dan to bel
 moved 14 verses from 2chr to prman
 moved 72 verses from epjer to bar
+swapped source verses matt 5:4 and 5:5 (Vulgate order)
 gen : source 3:20 covers KJV 3:20..3:21
 gen : source 6:1 covers KJV 5:32..6:1
 gen : source 8:7 covers KJV 8:7..8:8
@@ -22,6 +23,7 @@ lev : source 22:16 covers KJV 22:16..22:18
 lev : source 26:45 covers KJV 26:45..26:46
 num : source 2:1 covers KJV 2:1..2:2
 num : source 11:34 covers KJV 11:34..11:35
+num : source 15:16 and 15:17 are in the opposite order to KJV 15:16, 15:17
 num : source 20:28..20:29 merged into KJV 20:28
 num : source 27:3 covers KJV 27:3..27:4
 num : source 27:7..27:8 merged into KJV 27:8
@@ -325,6 +327,7 @@ sir : source 10:19..10:21 merged into KJV 10:19
 sir : source 10:25..10:26 merged into KJV 10:23
 sir : source 11:19..11:20 merged into KJV 11:19
 sir : source 11:22..11:23 merged into KJV 11:21
+sir : source 12:4 and 12:5 are in the opposite order to KJV 12:4, 12:5
 sir : source 12:13 covers KJV 12:13..12:14
 sir : source 12:15..12:16 merged into KJV 12:16
 sir : source 12:17..12:18 merged into KJV 12:17

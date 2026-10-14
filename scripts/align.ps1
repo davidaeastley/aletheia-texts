@@ -56,18 +56,27 @@ if ($meta['numbering'] -eq 'vulgate') {
   if ($src.ContainsKey('epjer') -and $src['epjer'].Count -eq 0) { [void]$src.Remove('epjer') }
 }
 
+if ($meta['numbering'] -eq 'vulgate') {
+  foreach ($ln in (Get-Content "$PSScriptRoot\swaps.csv" | ? { $_ -and $_ -notmatch '^#' })) {
+    $p = $ln.Split(','); $bk = $p[0]; $k1 = $p[1].Split(':'); $k2 = $p[2].Split(':')
+    if ($src.ContainsKey($bk) -and $src[$bk].ContainsKey($k1[0]) -and $src[$bk][$k1[0]].ContainsKey($k1[1]) -and $src[$bk][$k2[0]].ContainsKey($k2[1])) {
+      $tmp = $src[$bk][$k1[0]][$k1[1]]; $src[$bk][$k1[0]][$k1[1]] = $src[$bk][$k2[0]][$k2[1]]; $src[$bk][$k2[0]][$k2[1]] = $tmp; [void]$notes.Add("swapped source verses $bk $($p[1]) and $($p[2]) (Vulgate order)")
+    }
+  }
+}foreach ($k in @($src.Keys)) { if ($src[$k].Count -eq 0) { [void]$src.Remove($k) } }   # moves can leave an empty target book
 # ---- align book by book ----
 $out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $summary = @()
 foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
   if (-not $ref.ContainsKey($bid)) { $out[$bid] = $src[$bid]; [void]$report.Add("$bid : no KJV counterpart, kept with its own numbering"); continue }
   $S = Flatten $src[$bid]; $R = Flatten $ref[$bid]
-  $segs = [Aligner]::Align([string[]]($S | % { $_.k }), [string[]]($S | % { $_.t }), [string[]]($R | % { $_.k }), [string[]]($R | % { $_.t }))
-  $bookOut = [ordered]@{}; $merged = 0; $split = 0; $dropped = 0; $empty = 0
+  try { $segs = [Aligner]::Align([string[]]($S | % { $_.k }), [string[]]($S | % { $_.t }), [string[]]($R | % { $_.k }), [string[]]($R | % { $_.t })) } catch { "ALIGN FAILED $bid : $($_.Exception.InnerException.Message) :: $($_.Exception.InnerException.StackTrace)"; throw }
+  $bookOut = [ordered]@{}; $merged = 0; $split = 0; $dropped = 0; $empty = 0; $swapped = 0
   $put = { param($rk, $text) $c, $v = $rk.Split(':'); if (-not $bookOut.Contains($c)) { $bookOut[$c] = [ordered]@{} }; $bookOut[$c][$v] = $text }
   foreach ($sg in $segs) {
     $si = $sg[0]; $p = $sg[1]; $ri = $sg[2]; $q = $sg[3]
     if ($q -eq 0) { $dropped += $p; for ($x = 0; $x -lt $p; $x++) { [void]$report.Add("$bid : source verse $($S[$si + $x].k) has no KJV counterpart (dropped): $($S[$si + $x].t.Substring(0, [Math]::Min(70, $S[$si + $x].t.Length)))") }; continue }
     if ($p -eq 0) { $empty += $q; continue }
+    if ($sg[4] -eq 1) { & $put $R[$ri].k $S[$si + 1].t; & $put $R[$ri + 1].k $S[$si].t; $swapped++; [void]$report.Add("$bid : source $($S[$si].k) and $($S[$si + 1].k) are in the opposite order to KJV $($R[$ri].k), $($R[$ri + 1].k)"); continue }
     if ($p -eq $q) { for ($x = 0; $x -lt $p; $x++) { & $put $R[$ri + $x].k $S[$si + $x].t }; if ($p -gt 1) { $merged++ }; continue }
     if ($q -eq 1) { & $put $R[$ri].k (($S[$si..($si + $p - 1)] | % { $_.t }) -join ' '); $merged++; [void]$report.Add("$bid : source $($S[$si].k)..$($S[$si + $p - 1].k) merged into KJV $($R[$ri].k)"); continue }
     # one source verse covers several KJV verses: text goes in the first, the rest point back to it
@@ -76,7 +85,7 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
     $split++; [void]$report.Add("$bid : source $($S[$si].k) covers KJV $($first.k)..$($R[$ri + $q - 1].k)")
   }
   $out[$bid] = $bookOut
-  $summary += ("{0,-8} source {1,5} ref {2,5}  merges {3,3} splits {4,3} dropped {5,3} ref-only {6,3}" -f $bid, $S.Count, $R.Count, $merged, $split, $dropped, $empty)
+  $summary += ("{0,-8} source {1,5} ref {2,5}  merges {3,3} splits {4,3} dropped {5,3} ref-only {6,3} swaps {7,3}" -f $bid, $S.Count, $R.Count, $merged, $split, $dropped, $empty, $swapped)
 }
 $m2 = [ordered]@{}; foreach ($k in $meta.Keys) { $m2[$k] = $meta[$k] }; $m2['numbering'] = 'kjv'; $m2['alignedFrom'] = $meta['numbering']
 Write-NeutralJson "$root\aligned\$Id.json" $m2 $out

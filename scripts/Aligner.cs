@@ -69,8 +69,14 @@ public static class Aligner
         }
         public int Len(int i, int n) { int s = 0; for (int k = 0; k < n; k++) s += len[i + k]; return s; }
     }
-    static readonly int[][] Ops = new int[][] { new[] {1,1}, new[] {1,2}, new[] {2,1}, new[] {2,2}, new[] {1,3}, new[] {3,1}, new[] {1,0}, new[] {0,1} };
+    static readonly int[][] Ops = new int[][] { new[] {1,1,0}, new[] {1,2,0}, new[] {2,1,0}, new[] {2,2,0}, new[] {1,3,0}, new[] {3,1,0}, new[] {1,0,0}, new[] {0,1,0}, new[] {2,2,1} };   // last = two neighbouring verses in swapped order
     const double Gap = 0.8;
+    static double Pair(Side S, int i, Side R, int j)
+    {
+        double sim = Dice(S.g[1][i], S.t[1][i], R.g[1][j], R.t[1][j]);
+        double lp = Math.Min(1.0, Math.Abs(Math.Log((S.len[i] + 10.0) / (R.len[j] + 10.0))));
+        return 0.7 * (1 - sim) + 0.3 * lp;
+    }
 
     // returns rows of {sStart, sCount, rStart, rCount}
     public static int[][] Align(string[] sKeys, string[] sText, string[] rKeys, string[] rText)
@@ -93,11 +99,16 @@ public static class Aligner
                 if (cur == double.MaxValue) continue;
                 for (int o = 0; o < Ops.Length; o++)
                 {
-                    int p = Ops[o][0], q = Ops[o][1]; int ni = i + p, nj = j + q;
+                    int p = Ops[o][0], q = Ops[o][1], cr = Ops[o][2]; int ni = i + p, nj = j + q;
                     if (ni > N || nj > M) continue;
                     int cn = col(ni, nj); if (cn < 0 || cn >= width) continue;
                     double cost;
                     if (p == 0 || q == 0) cost = Gap * (p + q);
+                    else if (cr == 1)
+                    {
+                        double c1 = Pair(S, i, R, j + 1), c2 = Pair(S, i + 1, R, j);
+                        cost = c1 + c2 + 0.12;
+                    }
                     else
                     {
                         double sim = Dice(S.g[p][i], S.t[p][i], R.g[q][j], R.t[q][j]);
@@ -118,7 +129,7 @@ public static class Aligner
         while (bi > 0 || bj > 0)
         {
             int o = bk[bi][col(bi, bj)]; int p = Ops[o][0], q = Ops[o][1];
-            bi -= p; bj -= q; rows.Add(new[] { bi, p, bj, q });
+            bi -= p; bj -= q; rows.Add(new[] { bi, p, bj, q, Ops[o][2] });
         }
         rows.Reverse();
         return rows.ToArray();
