@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf)   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
+param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf, [string]$RefTsv = '')   # -RefTsv: align to this tsv (book, chapter, verse, text) instead of the KJV; a ...-pointers.tsv beside it restores its merged-verse pointers. For a Latin source, the Clementine Vulgate   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
 # Re-keys a translation to the KJV verse numbering the app uses, so every column lines up.
 # neutral/<id>.json (the source's own numbering) -> aligned/<id>.json
 . "$PSScriptRoot\lib.ps1"
@@ -19,7 +19,8 @@ function Flatten($chapters) {   # -> list of @{k='c:v'; c; v; t}
 
 # ---- references: the app's KJV (Old/New Testament) and the KJV Apocrypha ----
 $ref = @{}
-foreach ($ln in [IO.File]::ReadAllLines("$root\reports\kjv-bible.tsv", [Text.Encoding]::UTF8)) {
+$refFile = if ($RefTsv) { $RefTsv } else { "$root\reports\kjv-bible.tsv" }
+foreach ($ln in [IO.File]::ReadAllLines($refFile, [Text.Encoding]::UTF8)) {
   $p = $ln.Split("`t", 4); if ($p.Count -lt 4) { continue }
   if (-not $ref.ContainsKey($p[0])) { $ref[$p[0]] = [ordered]@{} }
   if (-not $ref[$p[0]].Contains($p[1])) { $ref[$p[0]][$p[1]] = [ordered]@{} }
@@ -27,6 +28,8 @@ foreach ($ln in [IO.File]::ReadAllLines("$root\reports\kjv-bible.tsv", [Text.Enc
 }
 $kj = $ser.DeserializeObject([IO.File]::ReadAllText("$root\neutral\kjv.json"))
 foreach ($b in $kj['books'].Keys) { if ($grp[$b] -eq 'apoc') { $ref[$b] = $kj['books'][$b] } }
+$refPtr = @{}; $pf = $refFile -replace '\.tsv$', '-pointers.tsv'
+if ($RefTsv -and (Test-Path $pf)) { foreach ($ln in [IO.File]::ReadAllLines($pf, [Text.Encoding]::UTF8)) { $q = $ln.Split("`t", 4); if (-not $refPtr.ContainsKey($q[0])) { $refPtr[$q[0]] = New-Object System.Collections.ArrayList }; [void]$refPtr[$q[0]].Add($q) } }
 
 # ---- the source translation, with the Vulgate-style additions moved to their Apocrypha books ----
 $j = $ser.DeserializeObject([IO.File]::ReadAllText("$root\neutral\$Id.json")); $meta = $j['meta']; $src = $j['books']
@@ -79,6 +82,7 @@ foreach ($k in @($src.Keys)) { if ($src[$k].Count -eq 0) { [void]$src.Remove($k)
 $out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $summary = @()
 foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
   if (-not $ref.ContainsKey($bid)) { $out[$bid] = $src[$bid]; [void]$report.Add("$bid : no KJV counterpart, kept with its own numbering"); continue }
+  [Aligner]::UseIdf = ([bool]$Idf -or ([bool]$RefTsv -and $grp[$bid] -eq 'apoc')); [Aligner]::OpPenalty = if ([Aligner]::UseIdf) { 0.35 } else { 0 }   # a Latin source against the English KJV Apocrypha is a cross-language alignment
   $S = Flatten $src[$bid]; $R = Flatten $ref[$bid]
   if ($RestrictToSourceChapters) { $have = @{}; foreach ($cc in $src[$bid].Keys) { $have[[string]$cc] = 1 }; $R = @($R | ? { $have.ContainsKey([string]$_.c) }); if ($R.Count -eq 0) { continue } }
   try { $segs = [Aligner]::Align([string[]]($S | % { $_.k }), [string[]]($S | % { $_.t }), [string[]]($R | % { $_.k }), [string[]]($R | % { $_.t })) } catch { "ALIGN FAILED $bid : $($_.Exception.InnerException.Message) :: $($_.Exception.InnerException.StackTrace)"; throw }
@@ -96,6 +100,7 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
     for ($x = 1; $x -lt $q; $x++) { $t = $R[$ri + $x]; $ptr = if ($t.c -eq $first.c) { '^' + $first.v } else { '^' + $first.k }; & $put $t.k $ptr }
     $split++; [void]$report.Add("$bid : source $($S[$si].k) covers KJV $($first.k)..$($R[$ri + $q - 1].k)")
   }
+  if ($refPtr.ContainsKey($bid)) { foreach ($q in $refPtr[$bid]) { if (-not $bookOut.Contains($q[1]) -or -not $bookOut[$q[1]].Contains($q[2])) { & $put "$($q[1]):$($q[2])" $q[3] } } }   # merged verses of the reference stay merged
   $out[$bid] = $bookOut
   $summary += ("{0,-8} source {1,5} ref {2,5}  merges {3,3} splits {4,3} dropped {5,3} ref-only {6,3} swaps {7,3}" -f $bid, $S.Count, $R.Count, $merged, $split, $dropped, $empty, $swapped)
 }

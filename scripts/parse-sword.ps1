@@ -6,7 +6,7 @@ Add-Type -TypeDefinition ([IO.File]::ReadAllText("$PSScriptRoot\SwordZText.cs"))
 $osis = @{
  Gen='gen';Exod='exod';Lev='lev';Num='num';Deut='deut';Josh='josh';Judg='judg';Ruth='ruth';'1Sam'='1sam';'2Sam'='2sam';'1Kgs'='1kgs';'2Kgs'='2kgs';'1Chr'='1chr';'2Chr'='2chr';Ezra='ezra';Neh='neh';Esth='esth';Job='job';Ps='ps';Prov='prov';Eccl='eccl';Song='song';Isa='isa';Jer='jer';Lam='lam';Ezek='ezek';Dan='dan';Hos='hos';Joel='joel';Amos='amos';Obad='obad';Jonah='jonah';Mic='mic';Nah='nah';Hab='hab';Zeph='zeph';Hag='hag';Zech='zech';Mal='mal'
  Matt='matt';Mark='mark';Luke='luke';John='john';Acts='acts';Rom='rom';'1Cor'='1cor';'2Cor'='2cor';Gal='gal';Eph='eph';Phil='phil';Col='col';'1Thess'='1thess';'2Thess'='2thess';'1Tim'='1tim';'2Tim'='2tim';Titus='titus';Phlm='phlm';Heb='heb';Jas='jas';'1Pet'='1pet';'2Pet'='2pet';'1John'='1john';'2John'='2john';'3John'='3john';Jude='jude';Rev='rev'
- Tob='tob';Jdt='jdt';AddEsth='addesth';Wis='wis';Sir='sir';Bar='bar';EpJer='epjer';PrAzar='sg3';Sus='sus';Bel='bel';'1Macc'='1macc';'2Macc'='2macc';'3Macc'='3macc';'4Macc'='4macc';'1Esd'='1esd';'2Esd'='2esd';PrMan='prman';Ps151='ps151';Laod='laod';EpLao='laod'
+ Tob='tob';Jdt='jdt';AddEsth='addesth';Wis='wis';Sir='sir';Bar='bar';EpJer='epjer';PrAzar='sg3';Sus='sus';Bel='bel';'1Macc'='1macc';'2Macc'='2macc';'3Macc'='3macc';'4Macc'='4macc';'1Esd'='1esd';'2Esd'='2esd';PrMan='prman';Ps151='ps151';AddPs='ps151';Laod='laod';EpLao='laod'
 }
 $order = @{}; $oi = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $oi++ }
 function Clean-Osis([string]$t) {
