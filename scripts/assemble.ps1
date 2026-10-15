@@ -27,6 +27,12 @@ foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
     "{0,-26} {1,-5} {2,3} books {3,6} verses {4,9} bytes" -f $id, $kind, $ids.Count, $nv, (Get-Item $p).Length
   }
 }
+# dictionaries (packs/dict/*.json, made by build-webster.ps1) are listed too: they have entries, not books
+foreach ($f in (Get-ChildItem "$out\dict\*.json" -ErrorAction SilentlyContinue)) {
+  $j = $ser.DeserializeObject([IO.File]::ReadAllText($f.FullName)); $meta = $j['meta']
+  $entries += [pscustomobject]@{ id = $meta['id']; kind = 'dict'; name = $meta['name']; year = $meta['year']; license = $meta['license']; file = "dict/$($f.Name)"; bytes = $f.Length; sha256 = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower(); books = @(); verses = @($j['entries']).Count }
+  "{0,-26} dict  {1,6} entries {2,9} bytes" -f $meta['id'], @($j['entries']).Count, $f.Length
+}
 $sb = New-Object Text.StringBuilder; [void]$sb.Append("{`n""version"": 1,`n""packs"": [`n")
 for ($k = 0; $k -lt $entries.Count; $k++) { $e = $entries[$k]
   [void]$sb.Append('  {"id": ' + (JsonStr $e.id) + ', "kind": ' + (JsonStr $e.kind) + ', "name": ' + (JsonStr $e.name) + ', "year": ' + (JsonStr $e.year) + ', "license": ' + (JsonStr $e.license) + ', "file": ' + (JsonStr $e.file) + ', "bytes": ' + $e.bytes + ', "sha256": ' + (JsonStr $e.sha256) + ', "verses": ' + $e.verses + ', "books": [' + (($e.books | % { '"' + $_ + '"' }) -join ',') + ']}')

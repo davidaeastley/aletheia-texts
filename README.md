@@ -4,6 +4,7 @@ Downloadable Bible texts for the Aletheia app. They are not bundled with the app
 
 - `packs/bible/<id>.json`: Old and New Testament
 - `packs/apoc/<id>.json`: Apocrypha
+- `packs/dict/<id>.json`: dictionaries (`{ "meta": {...}, "entries": [ ["word", "<p>HTML entry</p>"], ... ] }`)
 - `packs/manifest.json`: every pack with its size and SHA-256 checksum
 
 Pack layout: `{ "meta": {...}, "books": { "<book id>": { "<chapter>": { "<verse>": "text" } } } }`.
@@ -63,3 +64,13 @@ What the app does for these texts: the column carries the `lang` tag (correct Ch
 ## Re-checking the alignment
 
 All older packs were re-aligned with the current scripts. Results: Geneva, Bishops, Tyndale, Great Bible and Luther came out unchanged. Wycliffe and Douay-Rheims (Vulgate psalm numbers) now convert the Psalms to the Hebrew numbering first (as the Russian pack does), fold each Psalm title into verse 1 and align chapter by chapter, which fixes titles that had attached to the end of the previous psalm. A source verse with no KJV match now joins the verse before it instead of being lost. The BSB and NRSVue (built into the app, not published here) use -ChapterBlocks -GapsOnly: a verse is matched by its number, so a verse the source leaves out stays empty. This fixed NRSVue Psalm 119, which had been spread over the wrong verses; the NRSVue source file itself stops at Psalm 119:100 and lacks verses 101 to 176.
+
+## Dictionaries
+
+| Pack | Content | Source and licence |
+|---|---|---|
+| webster1828 | Noah Webster, *An American Dictionary of the English Language* (1828), 62,391 entries | `webster1828.csv` from [akaitsurugi/webster1828](https://github.com/akaitsurugi/webster1828), a typed copy of the 1828 edition checked against the archive.org scans. The 1828 text is public domain; the CSV is **CC BY-SA 4.0** (credit: akaitsurugi/webster1828). Built by `build-webster.ps1`. |
+
+The app does not keep this as a pack: it stores the entries in its search database (in pieces) so the Search tab can search them. 1828dictionary.com refuses automated downloads (it answers HTTP 403), so it was not used as the source.
+
+Wiktionary (Modern) is not a pack: the app asks Wiktionary's web service for each look-up and keeps only the last five.
