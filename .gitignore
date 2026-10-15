@@ -3,3 +3,4 @@ neutral/
 aligned/
 reports/kjv-*.tsv
 reports/kjv-keys.txt
+reports/*-neutral.json
