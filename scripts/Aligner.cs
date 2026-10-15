@@ -24,6 +24,9 @@ public static class Aligner
         }
         return sb.ToString().Trim();
     }
+    public static double OpPenalty = 0;   // extra cost of any merge/split/gap: for a source in another language, where the sequence is normally verse for verse
+    public static bool UseIdf = false;   // for two different languages: rare trigrams (names, numbers, cognates) count more than common ones
+    [ThreadStatic] static Dictionary<int, int> weights;
     static Dictionary<int, int> Grams(string n)
     {
         var d = new Dictionary<int, int>();
@@ -31,9 +34,23 @@ public static class Aligner
         for (int i = 0; i + 3 <= t.Length; i++)
         {
             int k = (t[i] << 16) ^ (t[i + 1] << 8) ^ t[i + 2] ^ (t[i] * 31);
-            int v; d.TryGetValue(k, out v); d[k] = v + 1;
+            int w = 1; if (weights != null) weights.TryGetValue(k, out w); if (w < 1) w = 1;
+            int v; d.TryGetValue(k, out v); d[k] = v + w;
         }
         return d;
+    }
+    static void BuildWeights(string[] a, string[] b)
+    {
+        var df = new Dictionary<int, int>(); int docs = 0;
+        foreach (var arr in new[] { a, b })
+            foreach (var s in arr)
+            {
+                docs++; var seen = new HashSet<int>(); string t = " " + Norm(s) + " ";
+                for (int i = 0; i + 3 <= t.Length; i++) seen.Add((t[i] << 16) ^ (t[i + 1] << 8) ^ t[i + 2] ^ (t[i] * 31));
+                foreach (int k in seen) { int v; df.TryGetValue(k, out v); df[k] = v + 1; }
+            }
+        weights = new Dictionary<int, int>();
+        foreach (var kv in df) weights[kv.Key] = Math.Max(1, (int)Math.Round(3 * Math.Log(1.0 + (double)docs / kv.Value)));
     }
     static Dictionary<int, int> Merge(Dictionary<int, int> a, Dictionary<int, int> b)
     {
@@ -82,6 +99,7 @@ public static class Aligner
     public static int[][] Align(string[] sKeys, string[] sText, string[] rKeys, string[] rText)
     {
         int N = sText.Length, M = rText.Length;
+        weights = null; if (UseIdf) BuildWeights(sText, rText);
         var S = new Side(sText); var R = new Side(rText);
         int W = Math.Max(80, Math.Max(N, M) / 8);
         int width = 2 * W + 1;
@@ -103,11 +121,11 @@ public static class Aligner
                     if (ni > N || nj > M) continue;
                     int cn = col(ni, nj); if (cn < 0 || cn >= width) continue;
                     double cost;
-                    if (p == 0 || q == 0) cost = Gap * (p + q);
+                    if (p == 0 || q == 0) cost = Gap * (p + q) + OpPenalty;
                     else if (cr == 1)
                     {
                         double c1 = Pair(S, i, R, j + 1), c2 = Pair(S, i + 1, R, j);
-                        cost = c1 + c2 + 0.12;
+                        cost = UseIdf ? 99 : c1 + c2 + 0.12;   // swapped neighbours only happen in the Vulgate order, never when the source is another language
                     }
                     else
                     {
@@ -116,7 +134,8 @@ public static class Aligner
                         double lp = Math.Min(1.0, Math.Abs(Math.Log((ls + 10.0) / (lr + 10.0))));
                         cost = (0.7 * (1 - sim) + 0.3 * lp) * (p + q) / 2.0;
                         if (p + q > 2) cost += 0.08;
-                        if (p == 1 && q == 1 && sKeys[i] == rKeys[j]) cost = Math.Max(0, cost - 0.15);
+                        if (p != 1 || q != 1) cost += OpPenalty;
+                        if (p == 1 && q == 1 && !UseIdf && sKeys[i] == rKeys[j]) cost = Math.Max(0, cost - 0.15);
                     }
                     double v = cur + cost;
                     if (v < dp[ni][cn]) { dp[ni][cn] = v; bk[ni][cn] = (sbyte)o; }

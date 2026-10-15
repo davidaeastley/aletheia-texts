@@ -1,0 +1,70 @@
+﻿Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 2 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 2 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 20 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 44 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 56 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+Psalm 142 : the first 2 source verses (title) folded into verse 1
+1sam : source 20:42..21:1 merged into KJV 20:42
+2sam : source 18:32 covers KJV 18:32..18:33
+isa : source 63:19 covers KJV 63:19..64:1
+hag : source 2:23 covers KJV 2:22..2:23
+acts : source 7:55 covers KJV 7:55..7:56
+acts : source 19:40 covers KJV 19:40..19:41
+2cor : source 13:13 covers KJV 13:13..13:14
+3john : source 1:14..1:15 merged into KJV 1:14

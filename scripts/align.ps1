@@ -1,9 +1,10 @@
-param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters)   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
+param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf)   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
 # Re-keys a translation to the KJV verse numbering the app uses, so every column lines up.
 # neutral/<id>.json (the source's own numbering) -> aligned/<id>.json
 . "$PSScriptRoot\lib.ps1"
 Add-Type -AssemblyName System.Web.Extensions
 Add-Type -TypeDefinition ([IO.File]::ReadAllText("$PSScriptRoot\Aligner.cs")) -Language CSharp
+[Aligner]::UseIdf = [bool]$Idf; if ($Idf) { [Aligner]::OpPenalty = 0.35 }
 $ser = New-Object System.Web.Script.Serialization.JavaScriptSerializer; $ser.MaxJsonLength = 300MB
 $root = "$PSScriptRoot\.."; New-Item -ItemType Directory -Force "$root\aligned" | Out-Null
 $order = @{}; $oi = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $oi++ }
@@ -63,7 +64,17 @@ if ($meta['numbering'] -eq 'vulgate') {
       $tmp = $src[$bk][$k1[0]][$k1[1]]; $src[$bk][$k1[0]][$k1[1]] = $src[$bk][$k2[0]][$k2[1]]; $src[$bk][$k2[0]][$k2[1]] = $tmp; [void]$notes.Add("swapped source verses $bk $($p[1]) and $($p[2]) (Vulgate order)")
     }
   }
-}foreach ($k in @($src.Keys)) { if ($src[$k].Count -eq 0) { [void]$src.Remove($k) } }   # moves can leave an empty target book
+}# German (Luther) Psalms count the title as verse 1 (or 1 and 2): fold the title verses into the first verse, so that the rest follow the KJV verse for verse
+if ($meta['numbering'] -eq 'german' -and $src.ContainsKey('ps')) {
+  $kc = @{}; foreach ($c in $ref['ps'].Keys) { $kc[$c] = $ref['ps'][$c].Count }
+  foreach ($c in @($src['ps'].Keys)) {
+    $d = $src['ps'][$c].Count - $kc[$c]; if ($d -lt 1) { continue }
+    $vs = @($src['ps'][$c].Keys | Sort-Object { [int]$_ }); $first = ($vs[0..$d] | % { $src['ps'][$c][$_] }) -join ' '
+    $new = [ordered]@{}; $new['1'] = $first; for ($x = $d + 1; $x -lt $vs.Count; $x++) { $new[[string]($x - $d + 1)] = $src['ps'][$c][$vs[$x]] }
+    $src['ps'][$c] = $new; [void]$notes.Add("Psalm $c : the first $($d + 1) source verses (title) folded into verse 1")
+  }
+}
+foreach ($k in @($src.Keys)) { if ($src[$k].Count -eq 0) { [void]$src.Remove($k) } }   # moves can leave an empty target book
 # ---- align book by book ----
 $out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $summary = @()
 foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {

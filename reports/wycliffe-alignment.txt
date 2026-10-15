@@ -1,7 +1,7 @@
-﻿moved 107 verses from esth to addesth
+﻿moved 108 verses from esth to addesth
 moved 67 verses from dan to sg3
 moved 65 verses from dan to sus
-moved 41 verses from dan to bel
+moved 42 verses from dan to bel
 moved 0 verses from 2chr to prman
 swapped source verses matt 5:4 and 5:5 (Vulgate order)
 gen : source 3:20 covers KJV 3:20..3:21
@@ -10,7 +10,6 @@ gen : source 8:7 covers KJV 8:7..8:8
 gen : source 46:33 covers KJV 46:33..46:34
 gen : source 49:32 covers KJV 49:32..49:33
 gen : source 50:22 covers KJV 50:22..50:23
-gen : source 50:23 covers KJV 50:24..50:25
 exod : source 16:1 covers KJV 15:27..16:1
 exod : source 29:44 covers KJV 29:43..29:44
 exod : source 35:33 covers KJV 35:33..35:35
@@ -18,11 +17,9 @@ exod : source 39:19 covers KJV 39:19..39:21
 exod : source 39:26..39:27 merged into KJV 39:28
 exod : source 39:33..39:34 merged into KJV 39:34
 exod : source 40:25 covers KJV 40:25..40:27
-exod : source 40:33 covers KJV 40:35..40:36
 lev : source 15:23 covers KJV 15:23..15:24
 lev : source 22:16 covers KJV 22:16..22:18
 lev : source 26:45 covers KJV 26:45..26:46
-lev : source 27:33 covers KJV 27:33..27:34
 num : source 2:1 covers KJV 2:1..2:2
 num : source 11:34 covers KJV 11:34..11:35
 num : source 15:16 and 15:17 are in the opposite order to KJV 15:16, 15:17
@@ -34,34 +31,26 @@ num : source 30:4 covers KJV 30:3..30:4
 num : source 33:22 covers KJV 33:22..33:23
 num : source 34:17 covers KJV 34:17..34:18
 num : source 34:18..34:19 merged into KJV 34:19
-deut : source 34:11 covers KJV 34:11..34:12
 josh : source 4:23..4:24 merged into KJV 4:23
 josh : source 5:14..5:15 merged into KJV 5:14
 josh : source 21:36 covers KJV 21:36..21:37
 josh : source 21:37 covers KJV 21:38..21:39
-josh : source 24:32 covers KJV 24:32..24:33
 judg : source 4:5 covers KJV 4:5..4:6
 judg : source 4:15 covers KJV 4:15..4:16
 judg : source 4:23 covers KJV 4:23..4:24
 judg : source 5:31..5:32 merged into KJV 5:31
-judg : source 21:23 covers KJV 21:23..21:25
-ruth : source 4:20 covers KJV 4:20..4:21
+judg : source 21:24 covers KJV 21:24..21:25
 1sam : source 4:2 covers KJV 4:2..4:3
 1sam : source 16:16 covers KJV 16:16..16:17
 1sam : source 17:3 covers KJV 17:3..17:4
 1sam : source 21:14 covers KJV 21:14..21:15
-1sam : source 31:12 covers KJV 31:12..31:13
-2sam : source 24:24 covers KJV 24:24..24:25
 1kgs : source 13:32 covers KJV 13:32..13:33
 1kgs : source 21:28 covers KJV 21:28..21:29
 1kgs : source 22:43..22:44 merged into KJV 22:43
-1kgs : source 22:53 covers KJV 22:52..22:53
-2kgs : source 25:29 covers KJV 25:29..25:30
 1chr : source 11:33 covers KJV 11:33..11:34
 1chr : source 11:34..11:35 merged into KJV 11:35
 1chr : source 11:46 covers KJV 11:46..11:47
 1chr : source 20:7 covers KJV 20:7..20:8
-1chr : source 29:29 covers KJV 29:29..29:30
 2chr : source 9:30 covers KJV 9:30..9:31
 2chr : source 26:11 covers KJV 26:11..26:12
 2chr : source 35:25 covers KJV 35:25..35:27
@@ -74,13 +63,12 @@ neh : source 7:46 covers KJV 7:45..7:46
 neh : source 7:72 covers KJV 7:72..7:73
 neh : source 11:8 covers KJV 11:8..11:9
 neh : source 12:33 covers KJV 12:33..12:34
-neh : source 13:29 covers KJV 13:29..13:30
 esth : source 3:14 covers KJV 3:14..3:15
 job : source 6:6 covers KJV 6:6..6:7
 job : source 8:8 covers KJV 8:8..8:9
 job : source 16:8..16:9 merged into KJV 16:8
 job : source 42:13 covers KJV 42:13..42:14
-job : source 42:14 covers KJV 42:15..42:17
+job : source 42:15 covers KJV 42:16..42:17
 ps : source 2:12..3:1 merged into KJV 2:12
 ps : source 4:1..4:2 merged into KJV 4:1
 ps : source 4:9..4:10 merged into KJV 4:8
@@ -162,27 +150,16 @@ ps : source 135:2..135:3 merged into KJV 136:3
 ps : source 139:3..139:4 merged into KJV 140:3
 ps : source 141:1..141:2 merged into KJV 142:1
 ps : source 147:9 covers KJV 147:19..147:20
-ps : source 150:5 covers KJV 150:5..150:6
-prov : source 31:30 covers KJV 31:30..31:31
 song : source 1:3 covers KJV 1:3..1:4
 song : source 6:5 covers KJV 6:6..6:7
 isa : source 45:23..45:24 merged into KJV 45:23
 jer : source 11:10 covers KJV 11:9..11:10
 jer : source 37:4 covers KJV 37:4..37:5
-lam : source 5:21 covers KJV 5:21..5:22
 ezek : source 2:9 covers KJV 2:9..2:10
 ezek : source 43:14 covers KJV 43:14..43:15
-ezek : source 48:34 covers KJV 48:34..48:35
 hos : source 2:23..2:24 merged into KJV 2:23
-hos : source 14:4 covers KJV 14:3..14:4
-joel : source 3:20 covers KJV 3:20..3:21
 amos : source 6:10..6:11 merged into KJV 6:10
-amos : source 9:14 covers KJV 9:14..9:15
-obad : source 1:20 covers KJV 1:20..1:21
 mic : source 5:11 covers KJV 5:11..5:12
-mic : source 7:19 covers KJV 7:19..7:20
-zeph : source 3:19 covers KJV 3:19..3:20
-hag : source 2:21 covers KJV 2:20..2:21
 matt : source 10:30 covers KJV 10:30..10:31
 matt : source 17:14 covers KJV 17:14..17:15
 matt : source 20:26 covers KJV 20:26..20:27
@@ -194,7 +171,6 @@ luke : source 7:26 covers KJV 7:25..7:26
 luke : source 7:41 covers KJV 7:41..7:42
 luke : source 17:35 covers KJV 17:35..17:36
 luke : source 17:36..17:37 merged into KJV 17:37
-luke : source 24:52 covers KJV 24:52..24:53
 john : source 6:51..6:52 merged into KJV 6:51
 john : source 11:56 covers KJV 11:56..11:57
 john : source 15:26 covers KJV 15:26..15:27
@@ -204,35 +180,18 @@ acts : source 14:6 covers KJV 14:6..14:7
 acts : source 19:40 covers KJV 19:40..19:41
 rom : source 6:22 covers KJV 6:22..6:23
 rom : source 15:32 covers KJV 15:32..15:33
-rom : source 16:26 covers KJV 16:26..16:27
 2cor : source 1:23 covers KJV 1:23..1:24
-2cor : source 13:11 covers KJV 13:11..13:13
+2cor : source 13:12 covers KJV 13:12..13:13
 gal : source 3:19 covers KJV 3:19..3:20
 gal : source 5:25 covers KJV 5:25..5:26
-gal : source 6:17 covers KJV 6:17..6:18
-eph : source 6:23 covers KJV 6:23..6:24
-phil : source 4:22 covers KJV 4:22..4:23
-col : source 4:17 covers KJV 4:17..4:18
 1thess : source 4:11 covers KJV 4:11..4:12
 1thess : source 5:16 covers KJV 5:16..5:17
 1thess : source 5:17..5:18 merged into KJV 5:18
-1thess : source 5:27 covers KJV 5:27..5:28
 2thess : source 2:10 covers KJV 2:10..2:11
-2thess : source 3:15 covers KJV 3:15..3:16
-1tim : source 6:20 covers KJV 6:20..6:21
 2tim : source 3:16 covers KJV 3:16..3:17
-2tim : source 4:21 covers KJV 4:21..4:22
-titus : source 3:14 covers KJV 3:14..3:15
-phlm : source 1:24 covers KJV 1:24..1:25
-heb : source 13:24 covers KJV 13:24..13:25
 1pet : source 4:18 covers KJV 4:18..4:19
-2pet : source 3:17 covers KJV 3:17..3:18
-1john : source 5:20 covers KJV 5:20..5:21
-2john : source 1:12 covers KJV 1:12..1:13
-jude : source 1:24 covers KJV 1:24..1:25
 rev : source 10:10 covers KJV 10:10..10:11
 rev : source 12:18..13:1 merged into KJV 13:1
-rev : source 22:20 covers KJV 22:20..22:21
 tob : source 1:21..1:22 merged into KJV 1:21
 tob : source 1:23..1:25 merged into KJV 1:22
 tob : source 2:10..2:12 merged into KJV 2:10
@@ -272,7 +231,8 @@ tob : source 13:14..13:15 merged into KJV 13:11
 tob : source 13:18..13:20 merged into KJV 13:14
 tob : source 13:21 covers KJV 13:15..13:16
 tob : source 14:10..14:12 merged into KJV 14:10
-tob : source 14:15 covers KJV 14:13..14:14
+tob : source 14:13..14:14 merged into KJV 14:11
+tob : source 14:17 covers KJV 14:14..14:15
 jdt : source 1:9 covers KJV 1:9..1:10
 jdt : source 1:10 covers KJV 1:11..1:13
 jdt : source 1:12 covers KJV 1:14..1:16
@@ -317,7 +277,7 @@ jdt : source 16:3..16:4 merged into KJV 16:3
 jdt : source 16:9..16:10 merged into KJV 16:8
 jdt : source 16:15..16:16 merged into KJV 16:13
 jdt : source 16:18..16:19 merged into KJV 16:15
-jdt : source 16:27..16:28 merged into KJV 16:23
+jdt : source 16:27..16:29 merged into KJV 16:23
 addesth : source 15:6..15:7 merged into KJV 15:6
 addesth : source 15:8..15:10 merged into KJV 15:7
 wis : source 2:24..2:25 merged into KJV 2:24
@@ -328,7 +288,7 @@ wis : source 9:18..9:19 merged into KJV 9:18
 wis : source 11:7..11:8 merged into KJV 11:7
 wis : source 17:9 covers KJV 17:9..17:10
 wis : source 19:12 covers KJV 19:12..19:13
-wis : source 19:19 covers KJV 19:20..19:22
+wis : source 19:20 covers KJV 19:21..19:22
 sir : source 1:14..1:16 merged into KJV 1:14
 sir : source 1:17..1:18 merged into KJV 1:15
 sir : source 1:21..1:23 merged into KJV 1:18
@@ -520,7 +480,6 @@ sir : source 51:16..51:17 merged into KJV 51:12
 sir : source 51:22..51:23 merged into KJV 51:17
 sir : source 51:25..51:26 merged into KJV 51:19
 sir : source 51:27..51:28 merged into KJV 51:20
-sir : source 51:37 covers KJV 51:29..51:30
 bar : source 3:34..3:35 merged into KJV 3:34
 bar : source 4:2 covers KJV 4:2..4:4
 bar : source 4:19 covers KJV 4:19..4:20
@@ -529,10 +488,10 @@ bar : source 6:14 covers KJV 6:15..6:16
 bar : source 6:15..6:16 merged into KJV 6:17
 bar : source 6:38..6:39 merged into KJV 6:39
 bar : source 6:54 covers KJV 6:54..6:55
-bar : source 6:71 covers KJV 6:72..6:73
 sg3 : source 1:65 covers KJV 1:65..1:66
 sus : source verse 1:65 has no KJV counterpart (dropped): And kyng Astriages was put to his fadris, and Sirus of Perseis took hi
 bel : source 1:2 covers KJV 1:2..1:3
+bel : source 1:40..1:41 merged into KJV 1:41
 1macc : source 1:3..1:4 merged into KJV 1:3
 1macc : source 1:21..1:22 merged into KJV 1:20
 1macc : source 1:23 covers KJV 1:21..1:22
@@ -545,10 +504,10 @@ bel : source 1:2 covers KJV 1:2..1:3
 1macc : source 11:3 covers KJV 11:3..11:4
 1macc : source 12:53..12:54 merged into KJV 12:53
 1macc : source 13:52..13:53 merged into KJV 13:52
-1macc : source 16:23 covers KJV 16:23..16:24
 2macc : source 2:25..2:26 merged into KJV 2:25
 2macc : source 3:39 covers KJV 3:39..3:40
 2macc : source 12:45..12:46 merged into KJV 12:45
+2macc : source 15:36..15:37 merged into KJV 15:36
 1esd : source 1:37 covers KJV 1:37..1:38
 1esd : source 2:30..2:31 merged into KJV 2:30
 1esd : source 8:6..8:7 merged into KJV 8:6
@@ -556,5 +515,6 @@ bel : source 1:2 covers KJV 1:2..1:3
 1esd : source 8:24..8:25 merged into KJV 8:22
 1esd : source 8:42 covers KJV 8:39..8:40
 1esd : source 8:45 covers KJV 8:43..8:44
-prman : source 1:13 covers KJV 1:13..1:15
+1esd : source 9:48..9:49 merged into KJV 9:48
+prman : source 1:14 covers KJV 1:14..1:15
 laod : no KJV counterpart, kept with its own numbering

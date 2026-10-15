@@ -23,7 +23,7 @@ foreach ($t in 'ot', 'nt') {
   $entries = [SwordZText]::ReadTestament($Dir, $t)
   $bk = $null; $ch = $null; $v = 0
   foreach ($e in $entries) {
-    if ($null -ne $e -and $e -match 'type="book"' -and $e -match 'osisID="([^"]+)"') {
+    if ($null -ne $e -and $e -match '<div\b[^>]*\bsID="[^"]*"[^>]*type="book"|<div\b[^>]*type="book"[^>]*\bsID=' -and $e -match 'osisID="([^"]+)"') {   # only a book START (sID); the closing tag (eID) can ride on the last verse of the book
       $o = $Matches[1]; if ($osis.ContainsKey($o)) { $bk = $osis[$o] } else { $bk = $null; $unknown[$o] = 1 }; $ch = $null; $v = 0; continue }
     if ($null -ne $e -and $e -match '<chapter\b[^>]*osisID="([^"]+)\.(\d+)"') { $o = $Matches[1]; $ch = $Matches[2]; $v = 0; if ($osis.ContainsKey($o)) { $bk = $osis[$o] } else { $bk = $null; $unknown[$o] = 1 }; continue }
     if ($null -eq $bk -or $null -eq $ch) { continue }
