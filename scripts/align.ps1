@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf, [string]$RefTsv = '', [double]$KeyBonus = -1, [switch]$ChapterBlocks)   # -ChapterBlocks: see below   # -KeyBonus: how strongly to trust identical chapter:verse numbers (default 0.15; 0 with -Idf). Use about 0.5 with -Idf for a source that is nearly in KJV numbering   # -RefTsv: align to this tsv (book, chapter, verse, text) instead of the KJV; a ...-pointers.tsv beside it restores its merged-verse pointers. For a Latin source, the Clementine Vulgate   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
+param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf, [string]$RefTsv = '', [double]$KeyBonus = -1, [switch]$ChapterBlocks, [switch]$GapsOnly)   # -ChapterBlocks: see below. -GapsOnly (with -ChapterBlocks): a chapter whose verse numbers are all KJV verse numbers maps by number even if the source leaves some verses out (BSB, NRSVue)   # -KeyBonus: how strongly to trust identical chapter:verse numbers (default 0.15; 0 with -Idf). Use about 0.5 with -Idf for a source that is nearly in KJV numbering   # -RefTsv: align to this tsv (book, chapter, verse, text) instead of the KJV; a ...-pointers.tsv beside it restores its merged-verse pointers. For a Latin source, the Clementine Vulgate   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
 # Re-keys a translation to the KJV verse numbering the app uses, so every column lines up.
 # neutral/<id>.json (the source's own numbering) -> aligned/<id>.json
 . "$PSScriptRoot\lib.ps1"
@@ -79,8 +79,8 @@ if ($meta['numbering'] -eq 'vulgate') {
       $tmp = $src[$bk][$k1[0]][$k1[1]]; $src[$bk][$k1[0]][$k1[1]] = $src[$bk][$k2[0]][$k2[1]]; $src[$bk][$k2[0]][$k2[1]] = $tmp; [void]$notes.Add("swapped source verses $bk $($p[1]) and $($p[2]) (Vulgate order)")
     }
   }
-}# Synodal Psalms use the Greek (Septuagint) psalm numbers: bring the chapters to the Hebrew numbers the KJV uses (9 holds Hebrew 9 and 10, 113 holds 114 and 115, 114 and 115 are one psalm, 146 and 147 are one psalm); a chapter that holds two Hebrew psalms is aligned against both
-if ($meta['numbering'] -eq 'synodal' -and $src.ContainsKey('ps')) {
+}# Synodal and Vulgate Psalms use the Greek (Septuagint) psalm numbers: bring the chapters to the Hebrew numbers the KJV uses (9 holds Hebrew 9 and 10, 113 holds 114 and 115, 114 and 115 are one psalm, 146 and 147 are one psalm); a chapter that holds two Hebrew psalms is aligned against both
+if (@('synodal', 'vulgate') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
   $old = $src['ps']; $nw = [ordered]@{}
   $add = { param($to, $from, $offset) if (-not $nw.Contains($to)) { $nw[$to] = [ordered]@{} }; foreach ($v in @($old[$from].Keys | Sort-Object { [int]$_ })) { $nw[$to][[string]([int]$v + $offset)] = $old[$from][$v] } }
   foreach ($c in @($old.Keys | Sort-Object { [int]$_ })) {
@@ -102,7 +102,7 @@ if ($meta['numbering'] -eq 'synodal' -and $src.ContainsKey('ps')) {
   $src['ps'] = $nw; [void]$notes.Add('Psalm chapters renumbered from the Greek to the Hebrew numbering')
 }
 # German (Luther) Psalms count the title as verse 1 (or 1 and 2): fold the title verses into the first verse, so that the rest follow the KJV verse for verse
-if (@('german', 'synodal') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
+if (@('german', 'synodal', 'hebrew', 'vulgate') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
   $kc = @{}; foreach ($c in $ref['ps'].Keys) { $kc[$c] = $ref['ps'][$c].Count }
   foreach ($c in @($src['ps'].Keys)) {
     if ($null -eq $kc[$c] ) { continue }
@@ -129,12 +129,15 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
       $rCh = @{}; for ($i = 0; $i -lt $R.Count; $i++) { $c = [int]$R[$i].c; if (-not $rCh.ContainsKey($c)) { $rCh[$c] = @($i, $i) } else { $rCh[$c][1] = $i } }
       $chs = @(@($sCh.Keys) + @($rCh.Keys) | Sort-Object -Unique)
       $same = @{}
-      foreach ($c in $chs) { $ok = $sCh.ContainsKey($c) -and $rCh.ContainsKey($c) -and ($sCh[$c][1] - $sCh[$c][0]) -eq ($rCh[$c][1] - $rCh[$c][0]); if ($ok) { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { if ($S[$sCh[$c][0] + $x].v -ne $R[$rCh[$c][0] + $x].v) { $ok = $false; break } } }; $same[$c] = $ok }
+      foreach ($c in $chs) { $ok = $sCh.ContainsKey($c) -and $rCh.ContainsKey($c) -and ($sCh[$c][1] - $sCh[$c][0]) -eq ($rCh[$c][1] - $rCh[$c][0]); if ($ok) { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { if ($S[$sCh[$c][0] + $x].v -ne $R[$rCh[$c][0] + $x].v) { $ok = $false; break } } }; if ($GapsOnly -and $sCh.ContainsKey($c) -and $rCh.ContainsKey($c)) { $rv = @{}; for ($i = $rCh[$c][0]; $i -le $rCh[$c][1]; $i++) { $rv[[string]$R[$i].v] = $i }; $ok = $true; for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { if (-not $rv.ContainsKey([string]$S[$i].v)) { $ok = $false; break } } }; $same[$c] = $ok }
       $inBlock = @{}; for ($k = 0; $k -lt $chs.Count; $k++) { $c = $chs[$k]; $inBlock[$c] = (-not $same[$c]) -or ($k -gt 0 -and -not $same[$chs[$k - 1]]) -or ($k -lt $chs.Count - 1 -and -not $same[$chs[$k + 1]]) }
       $segs = New-Object System.Collections.ArrayList; $k = 0
       while ($k -lt $chs.Count) {
         $c = $chs[$k]
-        if (-not $inBlock[$c]) { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { [void]$segs.Add([int[]]@(($sCh[$c][0] + $x), 1, ($rCh[$c][0] + $x), 1, 0)) }; $k++; continue }
+        if (-not $inBlock[$c]) {
+          if ($GapsOnly) { $rv = @{}; for ($i = $rCh[$c][0]; $i -le $rCh[$c][1]; $i++) { $rv[[string]$R[$i].v] = $i }; for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { [void]$segs.Add([int[]]@($i, 1, $rv[[string]$S[$i].v], 1, 0)) } }
+          else { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { [void]$segs.Add([int[]]@(($sCh[$c][0] + $x), 1, ($rCh[$c][0] + $x), 1, 0)) } }
+          $k++; continue }
         $e = $k; while ($e + 1 -lt $chs.Count -and $inBlock[$chs[$e + 1]]) { $e++ }
         $sa = $null; $sb = $null; $ra = $null; $rb = $null
         for ($m = $k; $m -le $e; $m++) { $cc = $chs[$m]; if ($sCh.ContainsKey($cc)) { if ($null -eq $sa) { $sa = $sCh[$cc][0] }; $sb = $sCh[$cc][1] }; if ($rCh.ContainsKey($cc)) { if ($null -eq $ra) { $ra = $rCh[$cc][0] }; $rb = $rCh[$cc][1] } }

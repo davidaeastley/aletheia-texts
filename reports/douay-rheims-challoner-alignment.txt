@@ -4,6 +4,71 @@ moved 65 verses from dan to sus
 moved 42 verses from dan to bel
 moved 0 verses from 2chr to prman
 swapped source verses matt 5:4 and 5:5 (Vulgate order)
+Psalm chapters renumbered from the Greek to the Hebrew numbering
+Psalm 2 : the first 2 source verses (title) folded into verse 1
+Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 3 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 11 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 2 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 43 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 126 : the first 2 source verses (title) folded into verse 1
+Psalm 136 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+Psalm 142 : the first 2 source verses (title) folded into verse 1
 gen : source 5:31 covers KJV 5:31..5:32
 gen : source 49:32 covers KJV 49:32..49:33
 gen : source 50:22 covers KJV 50:22..50:23
@@ -13,13 +78,7 @@ exod : source 39:33..39:34 merged into KJV 39:34
 exod : source 40:13 covers KJV 40:13..40:15
 lev : source 26:45 covers KJV 26:45..26:46
 num : source 11:34 covers KJV 11:34..11:35
-num : source 15:14 covers KJV 15:14..15:15
-num : source 15:17..15:18 merged into KJV 15:18
 num : source 20:28..20:29 merged into KJV 20:28
-num : source 27:3 covers KJV 27:3..27:4
-num : source 27:7..27:8 merged into KJV 27:8
-deut : source 6:11..6:12 merged into KJV 6:11
-deut : source 6:13 covers KJV 6:12..6:13
 josh : source 4:23..4:24 merged into KJV 4:23
 josh : source 5:14..5:15 merged into KJV 5:14
 josh : source 21:36 covers KJV 21:36..21:38
@@ -33,86 +92,10 @@ judg : source 21:24 covers KJV 21:24..21:25
 1chr : source 11:46 covers KJV 11:46..11:47
 1chr : source 20:7 covers KJV 20:7..20:8
 neh : source 3:30 covers KJV 3:30..3:31
-neh : source 7:43..7:44 merged into KJV 7:43
-neh : source 7:48 covers KJV 7:47..7:48
 neh : source 12:33 covers KJV 12:33..12:34
 job : source 16:4..16:5 merged into KJV 16:4
 job : source 42:16 covers KJV 42:16..42:17
-ps : source 2:12..3:1 merged into KJV 2:12
-ps : source 4:1..4:2 merged into KJV 4:1
-ps : source 4:8..4:9 merged into KJV 4:7
-ps : source 4:10..5:1 merged into KJV 4:8
-ps : source 6:1..6:2 merged into KJV 6:1
-ps : source 6:11..7:1 merged into KJV 6:10
-ps : source 7:18..8:1 merged into KJV 7:17
-ps : source 9:1..9:2 merged into KJV 9:1
-ps : source 9:39..10:1 merged into KJV 10:18
-ps : source 11:1..11:2 merged into KJV 12:1
-ps : source 12:2..12:3 merged into KJV 13:2
-ps : source 12:6 covers KJV 13:5..13:6
-ps : source verse 17:1 has no KJV counterpart (dropped): Unto the end, for David, the servant of the Lord, who spoke to the Lor
-ps : source 17:51..18:1 merged into KJV 18:50
-ps : source 18:15..19:1 merged into KJV 19:14
-ps : source 21:1..21:2 merged into KJV 22:1
-ps : source 29:13..30:1 merged into KJV 30:12
-ps : source verse 33:1 has no KJV counterpart (dropped): For David, when he changed his countenance before Achimelech, who dism
-ps : source 34:28..35:1 merged into KJV 35:28
-ps : source 36:40..37:1 merged into KJV 37:40
-ps : source 38:1..38:2 merged into KJV 39:1
-ps : source 39:1..39:2 merged into KJV 40:1
-ps : source 39:18..40:1 merged into KJV 40:17
-ps : source 40:14..41:1 merged into KJV 41:13
-ps : source 42:4..42:5 merged into KJV 43:4
-ps : source 42:6..43:1 merged into KJV 43:5
-ps : source 43:22 covers KJV 44:21..44:22
-ps : source 44:1..44:2 merged into KJV 45:1
-ps : source 44:18..45:1 merged into KJV 45:17
-ps : source 46:1..46:2 merged into KJV 47:1
-ps : source 46:10..47:1 merged into KJV 47:9
-ps : source 47:15..48:1 merged into KJV 48:14
-ps : source 50:1..50:3 merged into KJV 51:1
-ps : source 50:21..51:2 merged into KJV 51:19
-ps : source 52:1..52:2 merged into KJV 53:1
-ps : source 52:7..53:2 merged into KJV 53:6
-ps : source 54:1..54:2 merged into KJV 55:1
-ps : source 54:24..55:1 merged into KJV 55:23
-ps : source 55:11 covers KJV 56:10..56:11
-ps : source 56:1..56:2 merged into KJV 57:1
-ps : source 57:1..57:2 merged into KJV 58:1
-ps : source 57:12..58:1 merged into KJV 58:11
-ps : source 59:1..59:3 merged into KJV 60:1
-ps : source 59:14..60:1 merged into KJV 60:12
-ps : source 60:9..61:1 merged into KJV 61:8
-ps : source 61:13..62:1 merged into KJV 62:12
-ps : source 62:12..63:1 merged into KJV 63:11
-ps : source 63:7..63:8 merged into KJV 64:6
-ps : source 66:1..66:2 merged into KJV 67:1
-ps : source 67:1..67:2 merged into KJV 68:1
-ps : source 67:36..68:1 merged into KJV 68:35
-ps : source 68:37..69:1 merged into KJV 69:36
-ps : source 74:1..74:2 merged into KJV 75:1
-ps : source 74:11..75:1 merged into KJV 75:10
-ps : source 76:1..76:2 merged into KJV 77:1
-ps : source 78:13..79:1 merged into KJV 79:13
-ps : source 80:1..80:2 merged into KJV 81:1
-ps : source 81:8..82:1 merged into KJV 82:8
-ps : source 82:19..83:1 merged into KJV 83:18
-ps : source 84:1..84:2 merged into KJV 85:1
-ps : source 86:7..87:1 merged into KJV 87:7
-ps : source 88:1..88:2 merged into KJV 89:1
-ps : source 91:1..91:2 merged into KJV 92:1
-ps : source 94:7..94:8 merged into KJV 95:7
-ps : source 94:9 covers KJV 95:8..95:9
-ps : source 100:8..101:1 merged into KJV 101:8
-ps : source 106:43..107:1 merged into KJV 107:43
-ps : source 108:16..108:17 merged into KJV 109:16
-ps : source 108:18 covers KJV 109:17..109:18
-ps : source 125:6..125:7 merged into KJV 126:6
-ps : source 129:4 covers KJV 130:4..130:5
-ps : source 129:5..129:6 merged into KJV 130:6
-ps : source 135:27..136:1 merged into KJV 137:1
-ps : source 139:1..139:2 merged into KJV 140:1
-ps : source 141:1..141:2 merged into KJV 142:1
+ps : source 29:10 covers KJV 29:10..29:11
 ps : source 150:5 covers KJV 150:5..150:6
 song : source 1:1 covers KJV 1:1..1:2
 isa : source 45:23..45:24 merged into KJV 45:23
@@ -120,17 +103,11 @@ isa : source 46:11 covers KJV 46:11..46:12
 jer : source 37:4 covers KJV 37:4..37:5
 ezek : source 2:9 covers KJV 2:9..2:10
 hos : source 2:23..2:24 merged into KJV 2:23
-hos : source 5:15..6:1 merged into KJV 5:15
-hos : source 6:3 covers KJV 6:2..6:3
 amos : source 6:10..6:11 merged into KJV 6:10
 amos : source 9:14 covers KJV 9:14..9:15
 mic : source 5:11 covers KJV 5:11..5:12
 matt : source 17:14 covers KJV 17:14..17:15
 mark : source 4:40 covers KJV 4:40..4:41
-luke : source 9:42..9:43 merged into KJV 9:42
-luke : source 9:44 covers KJV 9:43..9:44
-luke : source 17:35 covers KJV 17:35..17:36
-luke : source 17:36..17:37 merged into KJV 17:37
 john : source 6:51..6:52 merged into KJV 6:51
 john : source 11:56 covers KJV 11:56..11:57
 acts : source 7:55 covers KJV 7:55..7:56
@@ -142,11 +119,7 @@ acts : source 19:40 covers KJV 19:40..19:41
 2cor : source 13:12 covers KJV 13:12..13:13
 1thess : source 4:11 covers KJV 4:11..4:12
 2thess : source 2:10 covers KJV 2:10..2:11
-2tim : source 4:8 covers KJV 4:8..4:9
-2tim : source 4:9..4:10 merged into KJV 4:10
 rev : source 12:18..13:1 merged into KJV 13:1
-rev : source 20:7 covers KJV 20:7..20:8
-rev : source 20:9..20:10 merged into KJV 20:10
 tob : source 1:22..1:23 merged into KJV 1:22
 tob : source 1:24..2:1 merged into KJV 2:1
 tob : source 2:10..2:12 merged into KJV 2:10
@@ -352,7 +325,7 @@ sir : source 23:21..23:23 merged into KJV 23:16
 sir : source 23:25..23:26 merged into KJV 23:18
 sir : source 23:27..23:28 merged into KJV 23:19
 sir : source 23:31..23:32 merged into KJV 23:22
-sir : source verse 24:3 has no KJV counterpart (dropped): And in the midst of her own people she shall be exalted, and shall be 
+sir : source verse 24:3 has no KJV counterpart (added to the end of KJV 24:2): And in the midst of her own people she shall be exalted, and shall be 
 sir : source 24:4..24:6 merged into KJV 24:3
 sir : source 24:9..24:10 merged into KJV 24:6
 sir : source 24:12..24:13 merged into KJV 24:8
@@ -498,9 +471,7 @@ bar : source 6:15..6:16 merged into KJV 6:17
 bar : source 6:42..6:43 merged into KJV 6:43
 bar : source 6:50 covers KJV 6:50..6:51
 sg3 : source 1:65 covers KJV 1:65..1:66
-sus : source verse 1:65 has no KJV counterpart (dropped): And king Astyages was gathered to his fathers; and Cyrus, the Persian,
-bel : source 1:2 covers KJV 1:2..1:3
-bel : source verse 1:42 has no KJV counterpart (dropped): Then the king said: Let all the inhabitants of the whole earth fear th
+sus : source verse 1:65 has no KJV counterpart (added to the end of KJV 1:64): And king Astyages was gathered to his fathers; and Cyrus, the Persian,
 1macc : source 1:3..1:4 merged into KJV 1:3
 1macc : source 1:21..1:22 merged into KJV 1:20
 1macc : source 1:23 covers KJV 1:21..1:22

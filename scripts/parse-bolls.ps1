@@ -1,16 +1,18 @@
 param([Parameter(Mandatory)][string]$Src, [Parameter(Mandatory)][string]$Id, [Parameter(Mandatory)][string]$Name, [string]$Year = '', [string]$Source = '', [string]$License = 'Public domain', [string]$Numbering = 'kjv', [string]$Note = '')
 # Parses a Bible JSON of the form {"metadata":{...},"verses":[{"book":1,"chapter":1,"verse":1,"text":"..."}]} (books numbered 1-66 in the usual order)
-# into neutral/<id>.json. Strong's markers such as {H776} and any HTML tags are removed.
+# (or a bare list of such rows) into neutral/<id>.json. Strong's markers such as {H776} and any HTML tags are removed.
 . "$PSScriptRoot\lib.ps1"
 Add-Type -AssemblyName System.Web.Extensions
 $ser = New-Object System.Web.Script.Serialization.JavaScriptSerializer; $ser.MaxJsonLength = [int]::MaxValue
 $j = $ser.DeserializeObject([IO.File]::ReadAllText($Src, [Text.Encoding]::UTF8))
 $bible = @($script:BookRows | ? { $_.group -ne 'apoc' })
 $data = @{}; $empty = 0
-foreach ($x in $j['verses']) {
+$rows = if ($j -is [System.Array] -or $j -is [System.Collections.ArrayList]) { $j } else { $j['verses'] }   # bolls.life downloads are a bare list of verses
+foreach ($x in $rows) {
   $b = $bible[[int]$x['book'] - 1].id
   $t = [string]$x['text']
-  $t = [regex]::Replace($t, '\{[HG]\d+[a-z]?\}', ''); $t = [regex]::Replace($t, '<[^>]+>', ' ')
+  $t = [regex]::Replace($t, '<sup>[^<]*</sup>', ''); $t = [regex]::Replace($t, '\{[HG]\d+[a-z]?\}', '');
+  $t = [regex]::Replace($t, '<br\s*/?>|</?p>', ' '); $t = [regex]::Replace($t, '<[^>]+>', '')   # (an inline tag such as <i> does not split a word; <br> and <p> do) (<sup> holds ruby readings, furigana, and is dropped first)
   $t = $t.Replace('&nbsp;', ' ').Replace('&amp;', '&')
   $t = ($t -replace '\s+', ' ').Trim()
   if ($t -eq '') { $empty++; continue }

@@ -1,0 +1,24 @@
+﻿Verse markers in the text give the English numbering.
+19 repeated verses skipped
+KJV verses with no text: 0
+Mapped to verses the KJV lacks (dropped): 2 3john:1:15 rev:12:18
+exod 22:2 repeats the verse before it (skipped)
+exod 22:3 repeats the verse before it (skipped)
+num 15:5 repeats the verse before it (skipped)
+num 26:1 repeats the verse before it (skipped)
+1chr 16:13 repeats the verse before it (skipped)
+ps 49:10 repeats the verse before it (skipped)
+ps 58:6 repeats the verse before it (skipped)
+ps 63:7 repeats the verse before it (skipped)
+ps 65:4 repeats the verse before it (skipped)
+ps 76:10 repeats the verse before it (skipped)
+ps 89:52 repeats the verse before it (skipped)
+ps 105:6 repeats the verse before it (skipped)
+ps 106:22 repeats the verse before it (skipped)
+ps 132:4 repeats the verse before it (skipped)
+ps 132:5 repeats the verse before it (skipped)
+prov 26:19 repeats the verse before it (skipped)
+isa 4:4 repeats the verse before it (skipped)
+rom 2:20 repeats the verse before it (skipped)
+rom 16:26 repeats the verse before it (skipped)
+2cor 13:13 is English verse 14; English 13 is part of verse 12

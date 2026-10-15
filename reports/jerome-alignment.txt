@@ -4,13 +4,84 @@ moved 65 verses from dan to sus
 moved 42 verses from dan to bel
 moved 0 verses from 2chr to prman
 swapped source verses matt 5:4 and 5:5 (Vulgate order)
+Psalm chapters renumbered from the Greek to the Hebrew numbering
+Psalm 2 : the first 2 source verses (title) folded into verse 1
+Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 3 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 11 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 13 : the first 2 source verses (title) folded into verse 1
+Psalm 14 : the first 2 source verses (title) folded into verse 1
+Psalm 16 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 3 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 20 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 25 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 44 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 56 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 109 : the first 2 source verses (title) folded into verse 1
+Psalm 118 : the first 2 source verses (title) folded into verse 1
+Psalm 130 : the first 2 source verses (title) folded into verse 1
+Psalm 136 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+Psalm 142 : the first 2 source verses (title) folded into verse 1
 gen : source 30:35..30:36 merged into KJV 30:35
 gen : source 31:43..31:44 merged into KJV 31:43
 gen : source 50:22..50:23 merged into KJV 50:22
 gen : source 50:25 covers KJV 50:25..50:26
 exod : source 25:34..25:35 merged into KJV 25:35
-exod : source 35:7..35:8 merged into KJV 35:7
-exod : source 35:33 covers KJV 35:32..35:33
 exod : source 37:2..37:3 merged into KJV 37:3
 exod : source 39:26..39:27 merged into KJV 39:28
 exod : source 40:2..40:3 merged into KJV 40:4
@@ -55,83 +126,18 @@ neh : source 7:43..7:44 merged into KJV 7:43
 esth : source 4:8..4:9 merged into KJV 4:8
 esth : source 9:9..9:10 merged into KJV 9:10
 job : source 16:4..16:5 merged into KJV 16:4
-ps : source 2:12..2:13 merged into KJV 2:12
-ps : source 3:7..3:8 merged into KJV 3:7
-ps : source 4:1..4:2 merged into KJV 4:1
-ps : source 4:8..4:9 merged into KJV 4:7
-ps : source 5:3..5:4 merged into KJV 5:3
-ps : source 6:1..6:2 merged into KJV 6:1
-ps : source 7:4..7:5 merged into KJV 7:4
-ps : source 8:8..8:9 merged into KJV 8:8
-ps : source 9:13..9:14 merged into KJV 9:13
-ps : source 10:1..10:2 merged into KJV 11:1
-ps : source 11:1..11:2 merged into KJV 12:1
-ps : source 12:2..12:3 merged into KJV 13:2
-ps : source 13:6..13:7 merged into KJV 14:7
-ps : source 15:10..15:11 merged into KJV 16:10
-ps : source 17:1..17:2 merged into KJV 18:1
-ps : source 17:44..17:45 merged into KJV 18:43
-ps : source 18:1..18:2 merged into KJV 19:1
-ps : source 19:1..19:2 merged into KJV 20:1
-ps : source 20:1..20:2 merged into KJV 21:1
-ps : source 21:1..21:2 merged into KJV 22:1
-ps : source 24:2..24:3 merged into KJV 25:2
-ps : source 29:1..29:2 merged into KJV 30:1
-ps : source 30:1..30:2 merged into KJV 31:1
-ps : source 33:16..33:17 merged into KJV 34:16
-ps : source 35:1..35:2 merged into KJV 36:1
-ps : source 37:1..37:2 merged into KJV 38:1
-ps : source 38:1..38:2 merged into KJV 39:1
-ps : source 39:1..39:2 merged into KJV 40:1
-ps : source 40:1..40:2 merged into KJV 41:1
-ps : source 41:1..41:2 merged into KJV 42:1
-ps : source 43:1..43:2 merged into KJV 44:1
-ps : source 44:1..44:2 merged into KJV 45:1
-ps : source 45:9..45:10 merged into KJV 46:9
-ps : source 46:9..46:10 merged into KJV 47:9
-ps : source 47:1..47:2 merged into KJV 48:1
-ps : source 48:9..48:10 merged into KJV 49:9
-ps : source 50:1..50:3 merged into KJV 51:1
-ps : source 51:1..51:2 merged into KJV 52:1
-ps : source 51:6..51:7 merged into KJV 52:5
-ps : source 52:1..52:2 merged into KJV 53:1
-ps : source 53:3..53:4 merged into KJV 54:3
-ps : source 53:7..53:8 merged into KJV 54:6
-ps : source 54:1..54:2 merged into KJV 55:1
-ps : source 55:4..55:5 merged into KJV 56:4
-ps : source 56:1..56:2 merged into KJV 57:1
-ps : source 57:1..57:2 merged into KJV 58:1
-ps : source 58:3..58:4 merged into KJV 59:3
-ps : source 59:4..59:5 merged into KJV 60:4
-ps : source 59:7..59:8 merged into KJV 60:6
-ps : source 60:2..60:3 merged into KJV 61:2
-ps : source 61:3..61:4 merged into KJV 62:3
-ps : source 62:1..62:2 merged into KJV 63:1
-ps : source 63:4..63:5 merged into KJV 64:4
-ps : source 64:4..64:5 merged into KJV 65:4
-ps : source 66:4..66:5 merged into KJV 67:4
-ps : source 67:1..67:2 merged into KJV 68:1
-ps : source 68:1..68:2 merged into KJV 69:1
-ps : source 69:2..69:3 merged into KJV 70:2
-ps : source 74:1..74:2 merged into KJV 75:1
-ps : source 75:3..75:4 merged into KJV 76:3
-ps : source 76:1..76:2 merged into KJV 77:1
-ps : source 79:1..79:2 merged into KJV 80:1
-ps : source 80:1..80:2 merged into KJV 81:1
-ps : source 82:1..82:2 merged into KJV 83:1
-ps : source 83:2..83:3 merged into KJV 84:2
-ps : source 84:1..84:2 merged into KJV 85:1
-ps : source 87:1..87:2 merged into KJV 88:1
-ps : source 88:1..88:2 merged into KJV 89:1
-ps : source 91:1..91:2 merged into KJV 92:1
-ps : source 101:1..101:2 merged into KJV 102:1
-ps : source 107:1..107:2 merged into KJV 108:1
-ps : source 108:16..108:17 merged into KJV 109:16
-ps : source 117:15..117:16 merged into KJV 118:15
-ps : source 129:5..129:6 merged into KJV 130:6
-ps : source 135:26..135:27 merged into KJV 136:26
-ps : source 139:1..139:2 merged into KJV 140:1
-ps : source 141:1..141:2 merged into KJV 142:1
+ps : source 14:1 covers KJV 14:1..14:2
+ps : source 14:5..14:6 merged into KJV 14:7
+ps : source 18:1 covers KJV 18:1..18:2
+ps : source 18:42..18:43 merged into KJV 18:43
+ps : source 56:2 covers KJV 56:2..56:3
+ps : source 56:3..56:4 merged into KJV 56:4
+ps : source 109:1 covers KJV 109:1..109:2
+ps : source 109:15..109:16 merged into KJV 109:16
+ps : source 118:3 covers KJV 118:3..118:4
+ps : source 118:14..118:15 merged into KJV 118:15
+ps : source 130:1 covers KJV 130:1..130:2
+ps : source 130:4..130:5 merged into KJV 130:6
 prov : source 4:26..4:27 merged into KJV 4:27
 prov : source 6:12..6:13 merged into KJV 6:13
 prov : source 13:4..13:5 merged into KJV 13:4
@@ -144,19 +150,13 @@ lam : source 1:4..1:5 merged into KJV 1:5
 hos : source 2:23..2:24 merged into KJV 2:23
 amos : source 6:10..6:11 merged into KJV 6:10
 matt : source 6:12..6:13 merged into KJV 6:13
-matt : source 23:13..23:14 merged into KJV 23:13
-matt : source 23:15 covers KJV 23:14..23:15
 luke : source 9:42..9:43 merged into KJV 9:42
 luke : source 17:36..17:37 merged into KJV 17:37
 john : source 6:51..6:52 merged into KJV 6:51
 john : source 11:56..11:57 merged into KJV 11:56
 acts : source 8:36 covers KJV 8:36..8:37
 acts : source 8:37..8:38 merged into KJV 8:38
-acts : source 18:3..18:4 merged into KJV 18:3
-acts : source 18:5 covers KJV 18:4..18:5
 acts : source 23:25..23:26 merged into KJV 23:26
-acts : source 28:28..28:29 merged into KJV 28:28
-acts : source 28:30 covers KJV 28:29..28:30
 2cor : source 1:23..1:24 merged into KJV 1:23
 2tim : source 4:8..4:9 merged into KJV 4:8
 rev : source 12:18..13:1 merged into KJV 13:1
@@ -351,8 +351,6 @@ bar : source 6:38..6:39 merged into KJV 6:39
 bar : source 6:50 covers KJV 6:50..6:51
 sg3 : source 1:29 covers KJV 1:29..1:30
 sus : source 1:63..1:64 merged into KJV 1:63
-bel : source 1:2 covers KJV 1:2..1:3
-bel : source 1:41..1:42 merged into KJV 1:42
 1macc : source 1:6..1:7 merged into KJV 1:6
 1macc : source 1:31..1:32 merged into KJV 1:30
 1macc : source 1:47..1:48 merged into KJV 1:45
@@ -408,7 +406,5 @@ bel : source 1:41..1:42 merged into KJV 1:42
 2esd : source 14:14 covers KJV 14:14..14:15
 2esd : source 14:19..14:20 merged into KJV 14:20
 2esd : source 15:1 covers KJV 14:48..15:1
-2esd : source 16:18..16:19 merged into KJV 16:18
-2esd : source 16:78 covers KJV 16:77..16:78
 ps151 : no KJV counterpart, kept with its own numbering
 laod : no KJV counterpart, kept with its own numbering

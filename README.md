@@ -47,8 +47,8 @@ The Bible's Texts page has a "Modern Language Translations" dropdown below "Hist
 | fr-segond | French, Louis Segond (1910) | MySword. Public domain. |
 | de-elberfelder | German, Elberfelder (1905) | The Unbound Bible. Public domain. (The source text has a few missing spaces before "über", e.g. "warüber".) |
 | hi-irv | Hindi, Indian Revised Version (2019) | Bridge Connectivity Solutions. **CC BY-SA 4.0**, copyright 2017/2018 Bridge Connectivity Solutions. |
-| ja-kougo | Japanese, Kougo-yaku (1955) | CrossWire module JapKougo 1.1. Public domain (copyright expired 2006). **About 470 verses are missing from the source module.** |
-| ko-krv | Korean Revised Version (1961) | The Unbound Bible, which lists it as public domain. 173 verses are left out of the source. |
+| ja-kougo | Japanese, Kougo-yaku (1955), complete (furigana removed) | bolls.life `JPKJV`. Public domain (copyright expired 2006). The text marks every verse that is numbered differently from the English Bible with the English verse in square brackets; `map-ja-markers.ps1` reads those markers, so its verse numbers are exact. |
+| ko-krv | Korean Revised Version (1961), complete | bolls.life `KRV`. Listed as public domain by its source, but the Korean Bible Society states a 1961 copyright, so check before relying on it. (The Unbound Bible Korean file first used had 173 verses missing.) |
 | pt-almeida | Portuguese, Almeida Revista e Corrigida | WordProject text, corrected for European Portuguese spelling; listed as public domain by the source. |
 | ru-synodal | Russian, Synodal Translation (1876), 66 books | CrossWire module RusSynodal 1.9.1. Public domain. The Apocrypha is not published (Cyrillic cannot be matched to the English KJV Apocrypha). The module uses Greek psalm numbers, converted to Hebrew ones here. |
 | es-rv1909 | Spanish, Reina-Valera (1909) | American Bible Society text with Strong's numbers (removed). Public domain. |
@@ -56,6 +56,10 @@ The Bible's Texts page has a "Modern Language Translations" dropdown below "Hist
 
 Most of these files already use the KJV chapter and verse numbers, so `copy-aligned.ps1` copies them (verses a text leaves out simply stay empty). Texts that differ in a few places (`bn-irv`, `hi-irv`, `es-rv1909`, `ru-synodal`) go through `align.ps1 -Idf -KeyBonus 0.5 -ChapterBlocks`, which aligns only the chapters whose verse numbers differ (and their neighbours). A verse that has no KJV counterpart is added to the end of the verse before it. `reports/<id>-alignment.txt` lists each change. Where Latin letters are not shared with English (Russian) only verse length guides the alignment, so a few verses in Job (and any chapter that is not numbered like the KJV) may be off by a verse or more.
 
-The Japanese, Cebuano and Russian modules come from CrossWire. `parse-sword.ps1 -KjvIndex` reads a module that has no book and chapter markers by position, and `parse-bolls.ps1` reads the JSON files (books numbered 1 to 66, one verse per row).
+The Cebuano and Russian modules come from CrossWire. `parse-sword.ps1 -KjvIndex` reads a module that has no book and chapter markers by position, and `parse-bolls.ps1` reads the JSON files (books numbered 1 to 66, one verse per row).
 
 What the app does for these texts: the column carries the `lang` tag (correct Chinese, Japanese and Korean glyph forms) and Arabic columns read right to left. Search folds accents, Arabic vowel marks and old letter forms but keeps the vowel signs of Indic scripts, and treats each Chinese or Japanese character as a search term, so a typed word is found as a phrase of characters.
+
+## Re-checking the alignment
+
+All older packs were re-aligned with the current scripts. Results: Geneva, Bishops, Tyndale, Great Bible and Luther came out unchanged. Wycliffe and Douay-Rheims (Vulgate psalm numbers) now convert the Psalms to the Hebrew numbering first (as the Russian pack does), fold each Psalm title into verse 1 and align chapter by chapter, which fixes titles that had attached to the end of the previous psalm. A source verse with no KJV match now joins the verse before it instead of being lost. The BSB and NRSVue (built into the app, not published here) use -ChapterBlocks -GapsOnly: a verse is matched by its number, so a verse the source leaves out stays empty. This fixed NRSVue Psalm 119, which had been spread over the wrong verses; the NRSVue source file itself stops at Psalm 119:100 and lacks verses 101 to 176.
