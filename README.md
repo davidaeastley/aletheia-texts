@@ -41,12 +41,16 @@ The Bible's Texts page has a "Modern Language Translations" dropdown below "Medi
 | `zh-hant` | Chinese Traditional | Han | `zh-Hant` |
 | `fr` | French | Latin | `fr` |
 | `de` | German | Latin | `de` |
+| `el` | Greek | Greek | `el` |
+| `he` | Hebrew | Hebrew, right to left | `he` |
 | `ja` | Japanese | Han and kana | `ja` |
 | `ko` | Korean | Hangul | `ko` |
 | `la` | Latin | Latin (the Clementine Vulgate already ships in the app; this slot is for another Latin text) | `la` |
 | `pt` | Portuguese | Latin | `pt` |
 | `ru` | Russian | Cyrillic | `ru` |
 | `es` | Spanish | Latin | `es` |
+
+The Greek and Hebrew slots are for modern translations; the app's own original-language columns (SBL Greek New Testament, Westminster Leningrad Codex, Septuagint) are separate.
 
 To publish one: parse the file into `neutral/<id>.json` (see "Rebuilding"), run `align.ps1`, run `assemble.ps1`, push, then in the app's `PK_CATALOG` (index.html) give the slot the translation's own `label` and `sub` and set `available: true`. If a language gets a second translation, add a second entry with its own id (the dropdown sorts by label).
 
