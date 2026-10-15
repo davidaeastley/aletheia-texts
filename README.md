@@ -29,3 +29,25 @@ All verse numbers follow the KJV numbering the app uses, so columns line up. A v
 3. `assemble.ps1` writes `packs/` and `manifest.json`
 
 `verify.ps1 -Id <id>` compares a translation's numbering with the KJV's.
+
+## Modern language translations (slots ready, files to come)
+
+The Bible's Texts page has a "Modern Language Translations" dropdown below "Medieval English Translations". It lists these slots, sorted by English name, all marked "Coming soon" until a file is published:
+
+| Slot id | Language | Script and direction | `lang` tag |
+|---|---|---|---|
+| `ar` | Arabic | Arabic, right to left | `ar` |
+| `zh-hans` | Chinese Simplified | Han | `zh-Hans` |
+| `zh-hant` | Chinese Traditional | Han | `zh-Hant` |
+| `fr` | French | Latin | `fr` |
+| `de` | German | Latin | `de` |
+| `ja` | Japanese | Han and kana | `ja` |
+| `ko` | Korean | Hangul | `ko` |
+| `la` | Latin | Latin (the Clementine Vulgate already ships in the app; this slot is for another Latin text) | `la` |
+| `pt` | Portuguese | Latin | `pt` |
+| `ru` | Russian | Cyrillic | `ru` |
+| `es` | Spanish | Latin | `es` |
+
+To publish one: parse the file into `neutral/<id>.json` (see "Rebuilding"), run `align.ps1`, run `assemble.ps1`, push, then in the app's `PK_CATALOG` (index.html) give the slot the translation's own `label` and `sub` and set `available: true`. If a language gets a second translation, add a second entry with its own id (the dropdown sorts by label).
+
+What the app already does for these texts: the column carries the `lang` tag (correct Chinese, Japanese and Korean glyph forms) and Arabic columns read right to left. Search folds accents, Arabic vowel marks and old letter forms, and treats each Chinese or Japanese character as a search term, so a typed word is found as a phrase of characters.
