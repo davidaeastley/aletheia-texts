@@ -7,7 +7,7 @@ $order = @{}; $i = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $i++ }
 $grp = @{}; foreach ($b in $script:BookRows) { $grp[$b.id] = $b.group }
 $out = "$PSScriptRoot\..\packs"; New-Item -ItemType Directory -Force "$out\bible", "$out\apoc" | Out-Null
 $entries = @()
-$noApoc = @('jerome')   # the Jerome Vulgate Apocrypha is not published: there is no Latin reference to place its verses against, only the English KJV Apocrypha, which is too loose a match
+$noApoc = @()   # packs whose Apocrypha is not published (none at the moment)
 $baseBuildOnly = @('nrsvue', 'nrsvue-apoc', 'bsb')   # shipped inside the app only; NRSVue is copyrighted and must never be published here
 foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
   if ($baseBuildOnly -contains $f.BaseName) { continue }
