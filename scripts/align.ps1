@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Id)
+param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters)   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
 # Re-keys a translation to the KJV verse numbering the app uses, so every column lines up.
 # neutral/<id>.json (the source's own numbering) -> aligned/<id>.json
 . "$PSScriptRoot\lib.ps1"
@@ -69,6 +69,7 @@ $out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $summary
 foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
   if (-not $ref.ContainsKey($bid)) { $out[$bid] = $src[$bid]; [void]$report.Add("$bid : no KJV counterpart, kept with its own numbering"); continue }
   $S = Flatten $src[$bid]; $R = Flatten $ref[$bid]
+  if ($RestrictToSourceChapters) { $have = @{}; foreach ($cc in $src[$bid].Keys) { $have[[string]$cc] = 1 }; $R = @($R | ? { $have.ContainsKey([string]$_.c) }); if ($R.Count -eq 0) { continue } }
   try { $segs = [Aligner]::Align([string[]]($S | % { $_.k }), [string[]]($S | % { $_.t }), [string[]]($R | % { $_.k }), [string[]]($R | % { $_.t })) } catch { "ALIGN FAILED $bid : $($_.Exception.InnerException.Message) :: $($_.Exception.InnerException.StackTrace)"; throw }
   $bookOut = [ordered]@{}; $merged = 0; $split = 0; $dropped = 0; $empty = 0; $swapped = 0
   $put = { param($rk, $text) $c, $v = $rk.Split(':'); if (-not $bookOut.Contains($c)) { $bookOut[$c] = [ordered]@{} }; $bookOut[$c][$v] = $text }

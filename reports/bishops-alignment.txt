@@ -1,0 +1,11 @@
+﻿ps : source 17:8 covers KJV 17:8..17:9
+ps : source 17:13..17:14 merged into KJV 17:14
+ps : source 40:3..40:4 merged into KJV 40:3
+ps : source 40:8 covers KJV 40:7..40:8
+ps : source 78:30 covers KJV 78:30..78:31
+ps : source 78:37..78:38 merged into KJV 78:38
+ps : source 87:1 and 87:2 are in the opposite order to KJV 87:1, 87:2
+ps : source 146:1 covers KJV 146:1..146:2
+ps : source 146:7..146:8 merged into KJV 146:8
+song : source 2:3..2:4 merged into KJV 2:3
+song : source 2:11 covers KJV 2:10..2:11

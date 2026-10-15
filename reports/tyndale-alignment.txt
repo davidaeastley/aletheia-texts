@@ -1,4 +1,33 @@
-﻿john : source 8:15 covers KJV 8:15..8:16
-john : source 8:43..8:44 merged into KJV 8:44
-john : source 18:5..18:6 merged into KJV 18:5
-john : source 18:35 covers KJV 18:34..18:35
+﻿gen : source 9:28 covers KJV 9:28..9:29
+gen : source 50:25 covers KJV 50:25..50:26
+exod : source 40:14 covers KJV 40:14..40:15
+lev : source 27:17 covers KJV 27:17..27:18
+lev : source 27:33 covers KJV 27:33..27:34
+num : source 7:22 covers KJV 7:22..7:23
+deut : source 34:11 covers KJV 34:11..34:12
+matt : source 5:48 covers KJV 5:47..5:48
+mark : source 11:25 covers KJV 11:25..11:26
+luke : source 17:36 covers KJV 17:36..17:37
+luke : source 24:52 covers KJV 24:52..24:53
+rom : source 1:23 covers KJV 1:22..1:23
+rom : source 16:26 covers KJV 16:26..16:27
+1cor : source 3:22 covers KJV 3:21..3:22
+1cor : source 16:23 covers KJV 16:23..16:24
+gal : source 5:20 covers KJV 5:20..5:21
+gal : source 6:17 covers KJV 6:17..6:18
+eph : source 6:23 covers KJV 6:23..6:24
+phil : source 4:22 covers KJV 4:22..4:23
+col : source 4:17 covers KJV 4:17..4:18
+1thess : source 5:27 covers KJV 5:27..5:28
+2thess : source 3:17 covers KJV 3:17..3:18
+1tim : source 6:20 covers KJV 6:20..6:21
+2tim : source 4:21 covers KJV 4:21..4:22
+titus : source 3:14 covers KJV 3:14..3:15
+heb : source 11:39 covers KJV 11:39..11:40
+heb : source 13:24 covers KJV 13:24..13:25
+2pet : source 3:17 covers KJV 3:17..3:18
+1john : source 5:20 covers KJV 5:20..5:21
+2john : source 1:12 covers KJV 1:12..1:13
+jude : source 1:24 covers KJV 1:24..1:25
+rev : source 21:26 covers KJV 21:26..21:27
+rev : source 22:20 covers KJV 22:20..22:21
