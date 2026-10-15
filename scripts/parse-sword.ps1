@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Dir, [Parameter(Mandatory)][string]$Id, [Parameter(Mandatory)][string]$Name, [string]$Year = '', [string]$Source = '', [string]$License = 'Public domain', [string]$Numbering = 'kjv', [string]$Note = '', [switch]$DropSectionHeadings)   # -DropSectionHeadings: also remove untyped <title> section headings found inside verse entries (the BSB has them), keeping Psalm superscriptions
+param([Parameter(Mandatory)][string]$Dir, [Parameter(Mandatory)][string]$Id, [Parameter(Mandatory)][string]$Name, [string]$Year = '', [string]$Source = '', [string]$License = 'Public domain', [string]$Numbering = 'kjv', [string]$Note = '', [switch]$DropSectionHeadings, [switch]$KjvIndex)   # -KjvIndex: the module has no OSIS book/chapter markers (plain verse entries): read them by position in the standard (KJV) verse index   # -DropSectionHeadings: also remove untyped <title> section headings found inside verse entries (the BSB has them), keeping Psalm superscriptions
 # Reads an unpacked CrossWire SWORD zText module (OSIS markup, zlib) and writes neutral/<id>.json.
 # $Dir = the module's data folder (.../modules/texts/ztext/<name>). Book and chapter boundaries come from the OSIS markers inside the entries.
 . "$PSScriptRoot\lib.ps1"
@@ -18,7 +18,28 @@ function Clean-Osis([string]$t) {
   ($t -replace '\s+', ' ').Trim()
 }
 $data = @{}; $warn = New-Object System.Collections.ArrayList; $unknown = @{}
+if ($KjvIndex) {
+  $cnt = [ordered]@{}; foreach ($ln in [IO.File]::ReadAllLines("$PSScriptRoot\..\reports\kjv-keys.txt")) { $q = $ln.Split(':'); if (-not $cnt.Contains($q[0])) { $cnt[$q[0]] = @{} }; $cnt[$q[0]][[int]$q[1]] = [Math]::Max([int]$cnt[$q[0]][[int]$q[1]], [int]$q[2]) }
+  foreach ($t in 'ot', 'nt') {
+    $entries = [SwordZText]::ReadTestament($Dir, $t); $idx = 2   # entry 0 = module heading, 1 = testament heading; then per book: book heading, per chapter: chapter heading + its verses
+    foreach ($b in ($script:BookRows | ? { $_.group -eq $t })) {
+      $idx++
+      foreach ($ch in ($cnt[$b.id].Keys | Sort-Object)) {
+        $idx++
+        for ($v = 1; $v -le $cnt[$b.id][$ch]; $v++) {
+          $e = $entries[$idx++]; if ($null -eq $e) { continue }
+          $txt = Clean-Osis $e; if ($txt -eq '') { continue }
+          if (-not $data.ContainsKey($b.id)) { $data[$b.id] = [ordered]@{} }; if (-not $data[$b.id].Contains([string]$ch)) { $data[$b.id][[string]$ch] = [ordered]@{} }
+          $data[$b.id][[string]$ch][[string]$v] = $txt
+        }
+      }
+    }
+    if ($idx -ne $entries.Count) { "WARNING: $t read $idx entries of $($entries.Count)" }
+  }
+}
+
 foreach ($t in 'ot', 'nt') {
+  if ($KjvIndex) { break }
   if (-not (Test-Path (Join-Path $Dir "$t.bzv"))) { continue }
   $entries = [SwordZText]::ReadTestament($Dir, $t)
   $bk = $null; $ch = $null; $v = 0

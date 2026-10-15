@@ -1,0 +1,198 @@
+﻿moved 67 verses from dan to sg3
+moved 64 verses from dan to sus
+moved 42 verses from dan to bel
+moved 10 verses from dan to dan
+moved 34 verses from dan to dan
+moved 3 verses from dan to dan
+moved 37 verses from dan to dan
+moved 7 verses from ps to ps151
+moved 72 verses from epjer to bar
+Psalm chapters renumbered from the Greek to the Hebrew numbering
+Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 2 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 2 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 20 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 44 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 56 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+num : source verse 13:34 has no KJV counterpart (added to the end of KJV 13:33): там видели мы и исполинов, сынов Енаковых, от исполинского рода; и мы 
+num : source verse 30:17 has no KJV counterpart (added to the end of KJV 30:16): Вот уставы, которые Господь заповедал Моисею об отношении между мужем 
+josh : source verse 5:16 has no KJV counterpart (added to the end of KJV 5:15): Иерихон заперся и был заперт от страха сынов Израилевых: никто не выхо
+josh : source verse 24:33 has no KJV counterpart (added to the end of KJV 24:32): [После сего] умер и Елеазар, сын Аарона [первосвященник], и похоронили
+josh : source 24:34..24:36 merged into KJV 24:33
+1sam : source verse 20:43 has no KJV counterpart (added to the end of KJV 20:42): И встал [Давид] и пошел, а Ионафан возвратился в город.
+1sam : source verse 24:23 has no KJV counterpart (added to the end of KJV 24:22): И поклялся Давид Саулу. И пошел Саул в дом свой, Давид же и люди его в
+job : source verse 39:31 has no KJV counterpart (added to the end of KJV 39:30): И продолжал Господь и сказал Иову:
+job : source 39:32..39:34 merged into KJV 40:1
+job : source 39:35..40:2 merged into KJV 40:2
+job : source verse 40:25 has no KJV counterpart (added to the end of KJV 40:24): будут ли продавать его товарищи ловли, разделят ли его между Хананейск
+job : source 40:26..41:1 merged into KJV 41:1
+job : source 42:1 covers KJV 41:27..41:29
+job : source 42:2 covers KJV 41:30..41:32
+job : source 42:3 covers KJV 41:33..42:1
+job : source 42:4 covers KJV 42:2..42:4
+prov : source 4:28..5:1 merged into KJV 5:1
+prov : source verse 13:26 has no KJV counterpart (added to the end of KJV 13:25): Праведник ест до сытости, а чрево беззаконных терпит лишение.
+prov : source verse 18:25 has no KJV counterpart (added to the end of KJV 18:24): Кто хочет иметь друзей, тот и сам должен быть дружелюбным; и бывает др
+eccl : source verse 4:17 has no KJV counterpart (added to the end of KJV 4:16): Наблюдай за ногою твоею, когда идешь в дом Божий, и будь готов более к
+song : source verse 7:14 has no KJV counterpart (added to the end of KJV 7:13): Мандрагоры уже пустили благовоние, и у дверей наших всякие превосходны
+hos : source verse 14:10 has no KJV counterpart (added to the end of KJV 14:9): Кто мудр, чтобы разуметь это? кто разумен, чтобы познать это? Ибо прав
+jonah : source verse 2:11 has no KJV counterpart (added to the end of KJV 2:10): И сказал Господь киту, и он изверг Иону на сушу.
+rom : source verse 14:24 has no KJV counterpart (added to the end of KJV 14:23): Могущему же утвердить вас, по благовествованию моему и проповеди Иисус
+rom : source 14:25..15:1 merged into KJV 15:1
+rom : source 16:24 covers KJV 16:25..16:27
+3john : source verse 1:15 has no KJV counterpart (added to the end of KJV 1:14): Мир тебе. Приветствуют тебя друзья; приветствуй друзей поименно. Аминь
+tob : source verse 6:18 has no KJV counterpart (added to the end of KJV 6:17): и демон ощутит запах и удалится, и не возвратится никогда. Когда же те
+tob : source verse 10:13 has no KJV counterpart (added to the end of KJV 10:12): После того отправился Товия, благословляя Бога, что Он благоустроил пу
+jdt : source verse 15:14 has no KJV counterpart (added to the end of KJV 15:13): Иудифь начала пред всем Израилем благодарственную песнь, и весь народ 
+wis : source verse 5:24 has no KJV counterpart (added to the end of KJV 5:23): Так беззаконие опустошит всю землю, и злодеяние ниспровергнет престолы
+wis : source 6:26..7:1 merged into KJV 7:1
+wis : source verse 9:19 has no KJV counterpart (added to the end of KJV 9:18): и спаслись премудростью.
+wis : source verse 11:27 has no KJV counterpart (added to the end of KJV 11:26): Но Ты все щадишь, потому что все Твое, душелюбивый Господи.
+wis : source verse 12:28 has no KJV counterpart (added to the end of KJV 12:27): посему и пришло на них окончательное осуждение.
+sir : source 4:32..4:34 merged into KJV 5:1
+sir : source 4:35..5:2 merged into KJV 5:2
+sir : source verse 5:16 has no KJV counterpart (added to the end of KJV 5:15): Не прослыви наушником, и не коварствуй языком твоим:
+sir : source 5:17..6:1 merged into KJV 6:1
+sir : source verse 7:37 has no KJV counterpart (added to the end of KJV 7:36): Не устраняйся от плачущих и с сетующими сетуй.
+sir : source 7:38..8:1 merged into KJV 8:1
+sir : source verse 8:20 has no KJV counterpart (added to the end of KJV 8:19): Не советуйся с глупым, ибо он не может умолчать о деле.
+sir : source 8:21..9:1 merged into KJV 9:1
+sir : source verse 9:19 has no KJV counterpart (added to the end of KJV 9:18): По силе твоей узнавай ближних и советуйся с мудрыми.
+sir : source 9:20..9:22 merged into KJV 10:1
+sir : source 9:23..10:2 merged into KJV 10:2
+sir : source verse 10:32 has no KJV counterpart (added to the end of KJV 10:31): Кто будет оправдывать согрешающего против души своей? И кто будет хвал
+sir : source 10:33..11:1 merged into KJV 11:1
+sir : source 13:27..13:29 merged into KJV 14:1
+sir : source 13:30..13:32 merged into KJV 14:2
+sir : source 14:1..14:3 merged into KJV 14:3
+sir : source verse 16:31 has no KJV counterpart (added to the end of KJV 16:30): Душа всего живущего покрыла лице ее, и в нее все возвратится.
+sir : source 20:1 covers KJV 19:29..20:1
+sir : source verse 21:29 has no KJV counterpart (added to the end of KJV 21:28): В устах глупых - сердце их, уста же мудрых - в сердце их.
+sir : source 21:30..22:1 merged into KJV 22:1
+sir : source 22:28..22:30 merged into KJV 23:1
+sir : source 22:31..23:2 merged into KJV 23:2
+sir : source verse 23:29 has no KJV counterpart (added to the end of KJV 23:28): Ему известно было все прежде, нежели сотворено было, равно как и по со
+sir : source 23:30..23:32 merged into KJV 24:1
+sir : source 23:33..23:35 merged into KJV 24:2
+sir : source 23:36..24:1 merged into KJV 24:3
+sir : source 24:2..24:4 merged into KJV 24:4
+sir : source verse 24:35 has no KJV counterpart (added to the end of KJV 24:34): И буду я сиять учением, как утренним светом, и далеко проявлю его;
+sir : source 24:36..25:1 merged into KJV 25:1
+sir : source verse 25:27 has no KJV counterpart (added to the end of KJV 25:26): От жены начало греха, и чрез нее все мы умираем.
+sir : source 25:28..26:1 merged into KJV 26:1
+sir : source 27:1 covers KJV 26:28..27:1
+sir : source verse 27:31 has no KJV counterpart (added to the end of KJV 27:30): посмеяние и поношение от гордых и мщение, как лев, подстерегут его.
+sir : source 27:32..28:1 merged into KJV 28:1
+sir : source 28:27..28:29 merged into KJV 29:1
+sir : source 28:30..29:2 merged into KJV 29:2
+sir : source verse 29:29 has no KJV counterpart (added to the end of KJV 29:28): "пойди сюда, пришлец, приготовь стол и, если есть что у тебя, накорми 
+sir : source 29:30..30:1 merged into KJV 30:1
+sir : source 30:26..31:1 merged into KJV 31:1
+sir : source 31:32..31:34 merged into KJV 32:1
+sir : source 31:35..31:37 merged into KJV 32:2
+sir : source 32:1..32:3 merged into KJV 32:3
+sir : source verse 32:25 has no KJV counterpart (added to the end of KJV 32:24): Верующий закону внимателен к заповедям, и надеющийся на Господа не пот
+sir : source 33:32..34:1 merged into KJV 34:1
+sir : source verse 35:21 has no KJV counterpart (added to the end of KJV 35:20): доколе не воздаст человеку по делам его, и за дела людей - по намерени
+sir : source 35:22..36:1 merged into KJV 36:1
+sir : source verse 36:27 has no KJV counterpart (added to the end of KJV 36:26): Где нет ограды, там расхитится имение; а у кого нет жены, тот будет вз
+sir : source 36:28..37:1 merged into KJV 37:1
+sir : source verse 37:32 has no KJV counterpart (added to the end of KJV 37:31): Не пресыщайся всякою сластью и не бросайся на разные снеди,
+sir : source 37:33..38:1 merged into KJV 38:1
+sir : source verse 38:35 has no KJV counterpart (added to the end of KJV 38:34): он устремляет сердце к тому, чтобы хорошо окончить сосуд, и забота его
+sir : source 38:36..38:38 merged into KJV 39:1
+sir : source 38:39..39:2 merged into KJV 39:2
+sir : source verse 39:36 has no KJV counterpart (added to the end of KJV 39:35): Огонь и град, голод и смерть - все это создано для отмщения;
+sir : source 39:37..39:39 merged into KJV 40:1
+sir : source 39:40..39:42 merged into KJV 40:2
+sir : source 40:1..40:3 merged into KJV 40:3
+sir : source 40:31..41:1 merged into KJV 41:1
+sir : source verse 41:25 has no KJV counterpart (added to the end of KJV 41:24): стыдись молчания пред приветствующими, смотрения на распутную женщину,
+sir : source 41:26..41:28 merged into KJV 42:1
+sir : source 41:29..42:2 merged into KJV 42:2
+sir : source verse 42:26 has no KJV counterpart (added to the end of KJV 42:25): одно поддерживает благо другого, - и кто насытится зрением славы Его?
+sir : source verse 43:34 has no KJV counterpart (added to the end of KJV 43:33): Кто видел Его, и объяснит? и кто прославит Его, как Он есть?
+sir : source 43:35..44:1 merged into KJV 44:1
+sir : source 44:24..44:26 merged into KJV 45:1
+sir : source 44:27..45:2 merged into KJV 45:2
+sir : source verse 45:27 has no KJV counterpart (added to the end of KJV 45:26): но он не должен иметь наследия в земле народа и нет ему участка между 
+sir : source 45:28..45:30 merged into KJV 46:1
+sir : source 45:31..46:2 merged into KJV 46:2
+sir : source verse 46:21 has no KJV counterpart (added to the end of KJV 46:20): и истребил вождей Тирских и всех князей Филистимских.
+sir : source 46:22..47:1 merged into KJV 47:1
+sir : source 47:26..47:28 merged into KJV 48:1
+sir : source 47:29..47:31 merged into KJV 48:2
+sir : source 48:1..48:3 merged into KJV 48:3
+sir : source verse 48:26 has no KJV counterpart (added to the end of KJV 48:25): В его дни солнце отступило назад, и он прибавил жизни царю.
+sir : source 48:27..49:1 merged into KJV 49:1
+sir : source 49:17..50:1 merged into KJV 50:1
+sir : source 50:30..51:1 merged into KJV 51:1
+sir : source 51:27..51:29 merged into KJV 51:27
+sir : source 51:30..51:32 merged into KJV 51:28
+sir : source 51:33..51:35 merged into KJV 51:29
+sir : source 51:36..51:38 merged into KJV 51:30
+bar : source verse 3:38 has no KJV counterpart (added to the end of KJV 3:37): После того Он явился на земле и обращался между людьми.
+2macc : source verse 2:33 has no KJV counterpart (added to the end of KJV 2:32): Итак, в связи с сказанным начнем теперь повествование: ибо неразумно у
+3macc : no KJV counterpart, kept with its own numbering
+1esd : source verse 2:31 has no KJV counterpart (added to the end of KJV 2:30): и начали удерживать строящих. И остановилось строение Иерусалимского х
+1esd : source 6:1 covers KJV 5:72..6:1
+1esd : source 9:1 covers KJV 8:93..8:95
+1esd : source 9:2 covers KJV 8:96..9:2
+2esd : source verse 10:60 has no KJV counterpart (added to the end of KJV 10:59): И спал я в ту ночь и в следующую, как он повелел мне.
+prman : source 1:12 covers KJV 1:13..1:15
+ps151 : no KJV counterpart, kept with its own numbering

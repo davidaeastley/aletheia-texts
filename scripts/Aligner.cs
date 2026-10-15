@@ -25,6 +25,7 @@ public static class Aligner
         return sb.ToString().Trim();
     }
     public static double OpPenalty = 0;   // extra cost of any merge/split/gap: for a source in another language, where the sequence is normally verse for verse
+    public static double KeyBonus = 0.15;   // cost taken off when a verse pair already has the same chapter:verse number
     public static bool UseIdf = false;   // for two different languages: rare trigrams (names, numbers, cognates) count more than common ones
     [ThreadStatic] static Dictionary<int, int> weights;
     static Dictionary<int, int> Grams(string n)
@@ -135,7 +136,7 @@ public static class Aligner
                         cost = (0.7 * (1 - sim) + 0.3 * lp) * (p + q) / 2.0;
                         if (p + q > 2) cost += 0.08;
                         if (p != 1 || q != 1) cost += OpPenalty;
-                        if (p == 1 && q == 1 && !UseIdf && sKeys[i] == rKeys[j]) cost = Math.Max(0, cost - 0.15);
+                        if (p == 1 && q == 1 && sKeys[i] == rKeys[j]) cost = Math.Max(0, cost - KeyBonus);
                     }
                     double v = cur + cost;
                     if (v < dp[ni][cn]) { dp[ni][cn] = v; bk[ni][cn] = (sbyte)o; }

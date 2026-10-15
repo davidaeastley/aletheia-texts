@@ -1,0 +1,22 @@
+﻿num : source 13:1 covers KJV 12:16..13:1
+num : source verse 13:34 has no KJV counterpart (added to the end of KJV 13:33): También vimos allí gigantes, hijos de Anac, [raza] de los gigantes: y 
+num : source verse 30:17 has no KJV counterpart (added to the end of KJV 30:16): Estas son las ordenanzas que Jehová mandó á Moisés entre el varón y su
+judg : source verse 14:21 has no KJV counterpart (added to the end of KJV 14:20): Y la mujer de Samsón fué [dada] á su compañero, con el cual él [antes]
+1sam : source 20:42..20:43 merged into KJV 20:42
+1sam : source verse 24:23 has no KJV counterpart (added to the end of KJV 24:22): Entonces David juró á Saúl. Y fuése Saúl á su casa, y David y los suyo
+2sam : source 20:25 covers KJV 20:25..20:26
+1kgs : source verse 22:54 has no KJV counterpart (added to the end of KJV 22:53): Porque sirvió á Baal, y lo adoró, y provocó á ira á Jehová Dios de Isr
+1chr : source verse 21:31 has no KJV counterpart (added to the end of KJV 21:30): Mas David no pudo ir allá á consultar á Dios, porque estaba espantado 
+2chr : source 16:14..16:15 merged into KJV 16:14
+2chr : source 33:24 covers KJV 33:24..33:25
+job : source 38:38 covers KJV 38:38..38:40
+job : source 39:31..39:33 merged into KJV 40:1
+job : source 39:34..39:36 merged into KJV 40:2
+job : source 39:37..40:1 merged into KJV 40:3
+job : source 40:2..40:4 merged into KJV 40:4
+job : source 40:18 covers KJV 40:19..40:21
+job : source 40:19 covers KJV 40:22..40:24
+hos : source verse 12:15 has no KJV counterpart (added to the end of KJV 12:14): Enojado ha Ephraim [á Dios] con amarguras; por tanto, sus sangres se d
+jonah : source verse 2:11 has no KJV counterpart (added to the end of KJV 2:10): Y mandó Jehová al pez, y vomitó á Jonás en tierra.
+2cor : source 13:13 covers KJV 13:13..13:14
+3john : source 1:14..1:15 merged into KJV 1:14

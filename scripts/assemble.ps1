@@ -7,7 +7,7 @@ $order = @{}; $i = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $i++ }
 $grp = @{}; foreach ($b in $script:BookRows) { $grp[$b.id] = $b.group }
 $out = "$PSScriptRoot\..\packs"; New-Item -ItemType Directory -Force "$out\bible", "$out\apoc" | Out-Null
 $entries = @()
-$noApoc = @()   # packs whose Apocrypha is not published (none at the moment)
+$noApoc = @('ru-synodal')   # packs whose Apocrypha is not published: the Russian one cannot be placed against the English KJV Apocrypha (different alphabet)
 $baseBuildOnly = @('nrsvue', 'nrsvue-apoc', 'bsb')   # shipped inside the app only; NRSVue is copyrighted and must never be published here
 foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
   if ($baseBuildOnly -contains $f.BaseName) { continue }

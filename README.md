@@ -33,28 +33,29 @@ All verse numbers follow the KJV numbering the app uses, so columns line up. A v
 
 `verify.ps1 -Id <id>` compares a translation's numbering with the KJV's.
 
-## Modern language translations (slots ready, files to come)
+## Modern language translations
 
-The Bible's Texts page has a "Modern Language Translations" dropdown below "Medieval English Translations". It lists these slots, sorted by English name, all marked "Coming soon" until a file is published:
+The Bible's Texts page has a "Modern Language Translations" dropdown below "Historically Significant Translations". Greek, Hebrew and Latin are not in it (those languages have their own columns and downloads elsewhere).
 
-| Slot id | Language | Script and direction | `lang` tag |
-|---|---|---|---|
-| `ar` | Arabic | Arabic, right to left | `ar` |
-| `zh-hans` | Chinese Simplified | Han | `zh-Hans` |
-| `zh-hant` | Chinese Traditional | Han | `zh-Hant` |
-| `fr` | French | Latin | `fr` |
-| `de` | German | Latin | `de` |
-| `el` | Greek | Greek | `el` |
-| `he` | Hebrew | Hebrew, right to left | `he` |
-| `ja` | Japanese | Han and kana | `ja` |
-| `ko` | Korean | Hangul | `ko` |
-| `la` | Latin | Latin (the Clementine Vulgate already ships in the app; this slot is for another Latin text) | `la` |
-| `pt` | Portuguese | Latin | `pt` |
-| `ru` | Russian | Cyrillic | `ru` |
-| `es` | Spanish | Latin | `es` |
+| Pack | Content | Source and licence |
+|---|---|---|
+| ar-svd | Arabic, Smith and Van Dyck (1865), right to left | The Unbound Bible (bolls.life JSON). Public domain. |
+| bn-irv | Bengali, Indian Revised Version (2018) | Bridge Connectivity Solutions. **CC BY-SA 4.0**, copyright 2018 Bridge Connectivity Solutions. |
+| ceb-pinadayag | Cebuano, Pinadayag (1917) | CrossWire module CebPinadayag 1.0.1 (Zefania). Public domain. |
+| zh-hans-cuv | Chinese Union Version, Simplified | MySword (Strong's numbers removed). Public domain. |
+| zh-hant-cuv | Chinese Union Version, Traditional | MySword (Strong's numbers removed). Public domain. |
+| fr-segond | French, Louis Segond (1910) | MySword. Public domain. |
+| de-elberfelder | German, Elberfelder (1905) | The Unbound Bible. Public domain. (The source text has a few missing spaces before "über", e.g. "warüber".) |
+| hi-irv | Hindi, Indian Revised Version (2019) | Bridge Connectivity Solutions. **CC BY-SA 4.0**, copyright 2017/2018 Bridge Connectivity Solutions. |
+| ja-kougo | Japanese, Kougo-yaku (1955) | CrossWire module JapKougo 1.1. Public domain (copyright expired 2006). **About 470 verses are missing from the source module.** |
+| ko-krv | Korean Revised Version (1961) | The Unbound Bible, which lists it as public domain. 173 verses are left out of the source. |
+| pt-almeida | Portuguese, Almeida Revista e Corrigida | WordProject text, corrected for European Portuguese spelling; listed as public domain by the source. |
+| ru-synodal | Russian, Synodal Translation (1876), 66 books | CrossWire module RusSynodal 1.9.1. Public domain. The Apocrypha is not published (Cyrillic cannot be matched to the English KJV Apocrypha). The module uses Greek psalm numbers, converted to Hebrew ones here. |
+| es-rv1909 | Spanish, Reina-Valera (1909) | American Bible Society text with Strong's numbers (removed). Public domain. |
+| tl-ab | Tagalog, Ang Biblia | MySword, typed from the Philippine Bible Society text. Public domain. |
 
-The Greek and Hebrew slots are for modern translations; the app's own original-language columns (SBL Greek New Testament, Westminster Leningrad Codex, Septuagint) are separate.
+Most of these files already use the KJV chapter and verse numbers, so `copy-aligned.ps1` copies them (verses a text leaves out simply stay empty). Texts that differ in a few places (`bn-irv`, `hi-irv`, `es-rv1909`, `ru-synodal`) go through `align.ps1 -Idf -KeyBonus 0.5 -ChapterBlocks`, which aligns only the chapters whose verse numbers differ (and their neighbours). A verse that has no KJV counterpart is added to the end of the verse before it. `reports/<id>-alignment.txt` lists each change. Where Latin letters are not shared with English (Russian) only verse length guides the alignment, so a few verses in Job (and any chapter that is not numbered like the KJV) may be off by a verse or more.
 
-To publish one: parse the file into `neutral/<id>.json` (see "Rebuilding"), run `align.ps1`, run `assemble.ps1`, push, then in the app's `PK_CATALOG` (index.html) give the slot the translation's own `label` and `sub` and set `available: true`. If a language gets a second translation, add a second entry with its own id (the dropdown sorts by label).
+The Japanese, Cebuano and Russian modules come from CrossWire. `parse-sword.ps1 -KjvIndex` reads a module that has no book and chapter markers by position, and `parse-bolls.ps1` reads the JSON files (books numbered 1 to 66, one verse per row).
 
-What the app already does for these texts: the column carries the `lang` tag (correct Chinese, Japanese and Korean glyph forms) and Arabic columns read right to left. Search folds accents, Arabic vowel marks and old letter forms, and treats each Chinese or Japanese character as a search term, so a typed word is found as a phrase of characters.
+What the app does for these texts: the column carries the `lang` tag (correct Chinese, Japanese and Korean glyph forms) and Arabic columns read right to left. Search folds accents, Arabic vowel marks and old letter forms but keeps the vowel signs of Indic scripts, and treats each Chinese or Japanese character as a search term, so a typed word is found as a phrase of characters.
