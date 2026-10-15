@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Dir, [Parameter(Mandatory)][string]$Id, [Parameter(Mandatory)][string]$Name, [string]$Year = '', [string]$Source = '', [string]$License = 'Public domain', [string]$Numbering = 'kjv', [string]$Note = '')
+param([Parameter(Mandatory)][string]$Dir, [Parameter(Mandatory)][string]$Id, [Parameter(Mandatory)][string]$Name, [string]$Year = '', [string]$Source = '', [string]$License = 'Public domain', [string]$Numbering = 'kjv', [string]$Note = '', [switch]$DropSectionHeadings)   # -DropSectionHeadings: also remove untyped <title> section headings found inside verse entries (the BSB has them), keeping Psalm superscriptions
 # Reads an unpacked CrossWire SWORD zText module (OSIS markup, zlib) and writes neutral/<id>.json.
 # $Dir = the module's data folder (.../modules/texts/ztext/<name>). Book and chapter boundaries come from the OSIS markers inside the entries.
 . "$PSScriptRoot\lib.ps1"
@@ -10,6 +10,8 @@ $osis = @{
 }
 $order = @{}; $oi = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $oi++ }
 function Clean-Osis([string]$t) {
+  $t = [regex]::Replace($t, '<title\b[^>]*type="parallel"[^>]*>.*?</title>', '', 'Singleline')   # cross-reference headings such as (John 1:1-5)
+  if ($DropSectionHeadings) { $t = [regex]::Replace($t, '<title\b(?![^>]*type="psalm")[^>]*>.*?</title>', '', 'Singleline') }
   $t = [regex]::Replace($t, '<note\b[^>]*?/>', ''); $t = [regex]::Replace($t, '<note\b[^>]*>.*?</note>', '', 'Singleline')
   $t = [regex]::Replace($t, '<[^>]+>', '')
   $t = $t.Replace('&amp;', '&').Replace('&lt;', '<').Replace('&gt;', '>').Replace('&quot;', '"').Replace('&apos;', "'").Replace('&#39;', "'")

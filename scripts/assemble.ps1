@@ -7,7 +7,9 @@ $order = @{}; $i = 0; foreach ($b in $script:BookRows) { $order[$b.id] = $i++ }
 $grp = @{}; foreach ($b in $script:BookRows) { $grp[$b.id] = $b.group }
 $out = "$PSScriptRoot\..\packs"; New-Item -ItemType Directory -Force "$out\bible", "$out\apoc" | Out-Null
 $entries = @()
+$baseBuildOnly = @('nrsvue', 'nrsvue-apoc', 'bsb')   # shipped inside the app only; NRSVue is copyrighted and must never be published here
 foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
+  if ($baseBuildOnly -contains $f.BaseName) { continue }
   $j = $ser.DeserializeObject([IO.File]::ReadAllText($f.FullName)); $meta = $j['meta']; $id = $meta['id']
   foreach ($kind in 'bible', 'apoc') {
     if ($id -eq 'kjv' -and $kind -eq 'bible') { continue }   # the app already contains the KJV; only its Apocrypha is published
