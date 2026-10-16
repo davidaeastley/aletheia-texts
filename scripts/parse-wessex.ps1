@@ -21,11 +21,13 @@ function PlainHtml([string]$x) {
   $x = [regex]::Replace($x, '<[^>]+>', ' '); [Net.WebUtility]::HtmlDecode(([regex]::Replace($x, '\s+', ' ')))
 }
 # split a chapter's text into verses: "1 text 2 text ..." (or "1. text"), taking each number only when it is the next expected verse
+# a verse number as the scanned text may show it: 1 can be I, l or | and 0 can be O (II for 11)
+function Num([int]$n) { ([string]$n).Replace('1', '[1Il]').Replace('0', '[0O]') }
 function SplitVerses([string]$t) {
   $v = [ordered]@{}; $next = 1; $pos = 0; $starts = @()
   while ($true) {
-    $m = [regex]::Match($t.Substring($pos), "(?<![\p{L}\p{N}])$next\.?\s+(?=\S)")
-    if (-not $m.Success -and $next -gt 1) { $m = [regex]::Match($t.Substring($pos), "(?<![\p{L}\p{N}])$($next - 1)\.?\s+(?=\S)") }   # a misprinted number (the edition has 32 twice in Matthew 23): the repeat counts as the next verse
+    $m = [regex]::Match($t.Substring($pos), "(?<![\p{L}\p{N}])$(Num $next)\.?\s+(?=\S)")
+    if (-not $m.Success -and $next -gt 1) { $m = [regex]::Match($t.Substring($pos), "(?<![\p{L}\p{N}])$(Num ($next - 1))\.?\s+(?=\S)") }   # a misprinted number (the edition has 32 twice in Matthew 23): the repeat counts as the next verse
     if (-not $m.Success) { break }
     $starts += @{ n = $next; at = $pos + $m.Index; len = $m.Length }; $pos = $pos + $m.Index + $m.Length; $next++
   }
@@ -61,8 +63,31 @@ foreach ($g in @(@('mark', 'The Gospel of Saint Mark in West-Saxon'), @('luke', 
   }
   $data[$g[0]] = $bk
 }
-$out = [ordered]@{}; foreach ($b in 'matt', 'mark', 'luke') { if ($data[$b].Count) { $out[$b] = $data[$b] } }
-$meta = [ordered]@{ id = $Id; name = 'West Saxon Gospels (Wessex Gospels, c. 990)'; year = 'c. 990'; source = 'Wikisource: Matthew (ed. J. W. Bright, 1910), Mark (Bright, 1905) and Luke in West Saxon'; license = 'Text public domain; Wikisource transcription CC BY-SA 4.0'; numbering = 'kjv'; note = 'Old English; Matthew, Mark and Luke (John is not on Wikisource)' }
+# John (Bright and Harris, 1904): the text pages 45 to 157 of the Wikisource index "Gospel of Saint John in West-Saxon.djvu" (the pages are proofread; there is no assembled page)
+$jf = Join-Path $Cache 'john-pages.txt'
+if (-not (Test-Path $jf)) {
+  $texts = New-Object System.Collections.ArrayList
+  for ($i = 45; $i -le 157; $i += 40) {
+    $batch = (($i..([Math]::Min($i + 39, 157)) | % { "Page:Gospel of Saint John in West-Saxon.djvu/$_" }) -join '|')
+    $r = Api "action=query&prop=revisions&rvprop=content&rvslots=main&titles=$([uri]::EscapeDataString($batch))"
+    foreach ($pg in ($r.query.pages.PSObject.Properties | Sort-Object { [int](($_.Value.title -split '/')[-1]) })) { [void]$texts.Add($pg.Value.revisions[0].slots.main.'*') }
+  }
+  [IO.File]::WriteAllText($jf, ($texts -join "`n"), (New-Object Text.UTF8Encoding($false)))
+}
+$jt = [IO.File]::ReadAllText($jf, [Text.Encoding]::UTF8)
+$jt = [regex]::Replace($jt, '<noinclude>.*?</noinclude>', '', 'Singleline'); $jt = [regex]::Replace($jt, '<ref[^>]*/>', ''); $jt = [regex]::Replace($jt, '<ref[^>]*>.*?</ref>', '', 'Singleline')
+$jc = [regex]::Split($jt, 'CAPUT\s+[IVXL]+')   # [0] = before chapter 1 (title lines), then one piece per chapter
+$bk = [ordered]@{}
+for ($ci = 1; $ci -lt $jc.Count; $ci++) {
+  $s = $jc[$ci]
+  for ($k = 0; $k -lt 4; $k++) { $s = [regex]::Replace($s, '\{\{[^{}]*\}\}', ' ') }   # templates, innermost first
+  $s = [regex]::Replace($s, '\{\{[^}]*$', ' '); $s = [regex]::Replace($s, '^[^{]*?\}\}+', ' ')   # the halves of the heading template on either side of the split
+  $s = $s.Replace("''", '').Replace('[', '').Replace(']', ''); $s = ($s -replace '\s+', ' ').Trim()
+  $vs = SplitVerses $s; if ($vs.Count) { $bk[[string]$ci] = $vs }
+}
+$data['john'] = $bk
+$out = [ordered]@{}; foreach ($b in 'matt', 'mark', 'luke', 'john') { if ($data[$b].Count) { $out[$b] = $data[$b] } }
+$meta = [ordered]@{ id = $Id; name = 'West Saxon Gospels (Wessex Gospels, c. 990)'; year = 'c. 990'; source = 'Wikisource: Matthew (ed. J. W. Bright, 1910), Mark (Bright, 1905), Luke, and John (Bright and Harris, 1904) in West Saxon'; license = 'Text public domain; Wikisource transcription CC BY-SA 4.0'; numbering = 'kjv'; note = 'Old English; the four Gospels' }
 Write-NeutralJson "$PSScriptRoot\..\neutral\$Id.json" $meta $out
 $nv = 0; foreach ($b in $out.Values) { foreach ($c in $b.Values) { $nv += $c.Count } }
 "$Id : $($out.Count) books, $nv verses"
