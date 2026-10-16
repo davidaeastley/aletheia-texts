@@ -22,6 +22,8 @@ foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
     $data = [ordered]@{}; foreach ($b in $ids) { $data[$b] = $j['books'][$b] }
     $m = [ordered]@{}; foreach ($k in $meta.Keys) { $m[$k] = $meta[$k] }; $m['kind'] = $kind; $m['books'] = ($ids -join ',')
     Write-NeutralJson $p $m $data
+    if ($kind -eq 'bible' -and (Test-Path "$PSScriptRoot\..\aligned\$id.strongs")) { $pt = [IO.File]::ReadAllText($p, [Text.Encoding]::UTF8).TrimEnd(); $pt = $pt.Substring(0, $pt.Length - 1).TrimEnd() + ",`n ""strongs"": " + [IO.File]::ReadAllText("$PSScriptRoot\..\aligned\$id.strongs", [Text.Encoding]::UTF8) + "`n}
+"; [IO.File]::WriteAllText($p, $pt, (New-Object Text.UTF8Encoding($false))) }   # word-by-word Strong's numbers (Textus Receptus)
     $nv = 0; foreach ($b in $data.Values) { foreach ($c in $b.Values) { $nv += $c.Count } }
     $sha = (Get-FileHash $p -Algorithm SHA256).Hash.ToLower()
     $entries += [pscustomobject]@{ id = $id; kind = $kind; name = $meta['name']; year = $meta['year']; license = $meta['license']; file = "$kind/$id.json"; bytes = (Get-Item $p).Length; sha256 = $sha; books = $ids; verses = $nv }
