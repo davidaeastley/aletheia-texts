@@ -14,3 +14,7 @@ private/
 reports/heb-ref*.tsv
 reports/grk-ref*.tsv
 reports/lxx-ref*.tsv
+
+# the Great Bible: withheld (terms of the site it came from); kept only in private/
+reports/great-*
+
