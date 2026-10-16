@@ -1,0 +1,78 @@
+﻿Psalm chapters renumbered from the Greek to the Hebrew numbering
+Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 2 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 13 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 2 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 20 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 44 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 56 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 116 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+Psalm 142 : the first 2 source verses (title) folded into verse 1
+ps : source verse 150:1 has no KJV counterpart (dropped): ⲁⲗⲗⲏⲗⲟⲩⲓⲁ ⲥⲙⲟⲩ ⲉⲡϫⲟⲉⲓⲥ ϩⲛ ⲛⲉϥⲡⲉⲧⲟⲩⲁⲁⲃ ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲙ ⲡⲉⲥⲧⲉⲣⲉⲱⲙⲁ ⲛⲧⲉϥϭⲟⲙ
+ps : source verse 150:2 has no KJV counterpart (dropped): ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ⲛⲉϥϭⲟⲙ ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲙ ⲡⲁϣⲁⲓ ⲛⲧⲉϥⲙⲛⲧⲛⲟϭ
+ps : source verse 150:3 has no KJV counterpart (dropped): ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ⲟⲩϩⲣⲟⲟⲩ ⲛⲥⲁⲗⲡⲓⲅⲝ ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ⲟⲩⲯⲁⲗⲧⲏⲣⲓⲟⲛ ⲙⲛ ⲟⲩϭⲓⲑⲁⲣⲁ
+ps : source verse 150:4 has no KJV counterpart (dropped): ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ⲟⲩⲧⲩⲙⲡⲁⲛⲟⲛ ⲙⲛ ⲟⲩⲭⲟⲣⲟⲥ ⲥⲙⲟⲩ ⲉⲡϫⲟⲉⲓⲥ ϩⲛ ϩⲉⲛⲭⲟⲣⲧⲏ ⲙⲛ ϩⲉⲛⲟⲣⲅⲁ
+ps : source verse 150:5 has no KJV counterpart (dropped): ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ϩⲉⲛϫⲓⲛ ϫⲓⲛⲉ ⲛⲉⲥⲉⲧⲉⲩⲥⲙⲏ ⲥⲙⲟⲩ ⲉⲣⲟϥ ϩⲛ ϩⲉⲛⲕⲩⲙⲃⲁⲗⲟⲛ ⲛⲗⲟⲩⲗⲁⲓ
+ps : source verse 150:6 has no KJV counterpart (dropped): ⲙⲁⲣⲉⲛⲓϥⲉ ⲛⲓⲙ ⲥⲙⲟⲩ ⲉⲡϫⲟⲉⲓⲥ
+ps : source verse 151:1 has no KJV counterpart (dropped): ⲛⲉⲯⲁⲗⲙⲟⲥ ⲛⲇⲁⲩⲉⲓⲇ ⲡⲉⲓⲯⲁⲗⲙⲟⲥ ⲛⲧⲁⲇⲁⲩⲉⲓⲇ ⲥⲁϩϥ ⲉⲧⲥⲟⲧϥ ⲉϥⲙⲡⲃⲟⲗ ⲛⲧⲏⲡⲉⲛⲧⲉⲣⲉϥⲙⲓ
+ps : source verse 151:2 has no KJV counterpart (dropped): ⲛⲁϭⲓϫ ⲁⲩⲧⲁⲙⲓⲟ ⲛⲟⲩⲟⲣⲅⲁⲛⲟⲛ ⲛⲁⲧⲏⲏⲃⲉ ⲁⲩⲧⲱϣ ⲛⲟⲩⲯⲁⲗⲧⲏⲣⲓⲟⲛ
+ps : source verse 151:3 has no KJV counterpart (dropped): ⲛⲓⲙ ⲡⲉⲧⲛⲁϫⲓⲡⲟⲩⲱ ⲙⲡϫⲟⲉⲓⲥ ⲛⲧⲟϥ ⲡⲉ ⲡϫⲟⲉⲓⲥ ⲛⲧⲟϥ ⲉⲧⲥⲱⲧⲙ
+ps : source verse 151:4 has no KJV counterpart (dropped): ⲛⲧⲟϥ ⲡⲉⲛⲧⲁϥⲧⲛⲛⲟⲟⲩ ⲙⲡⲉϥⲁⲅⲅⲉⲗⲟⲥ ⲁϥϥⲓⲧ ϩⲛ ⲛⲉⲥⲟⲟⲩ ⲙⲡⲁⲉⲓⲱⲧ ⲁϥⲧⲁϩⲥⲧ ⲙⲡⲛⲉϩ ⲙⲡ
+ps : source verse 151:5 has no KJV counterpart (dropped): ⲛⲁⲥⲛⲏⲩ ⲛⲉ ϩⲉⲛⲛⲟϭ ⲛⲉ ⲉⲛⲉⲥⲱⲟⲩ ⲁⲩⲱ ⲙⲡⲉⲡϫⲟⲉⲓⲥ ⲟⲩⲁϣⲟⲩ
+ps : source verse 151:6 has no KJV counterpart (dropped): ⲁⲓⲉⲓ ⲉⲃⲟⲗ ⲉⲧⲱⲙⲛⲧ ⲉⲡⲁⲗⲗⲟⲫⲩⲗⲟⲥ ⲁⲩⲱ ⲁϥⲥⲁϩⲟⲩ ⲙⲙⲟⲓ ϩⲛ ⲛⲉϥⲉⲓⲇⲱⲗⲟⲛ
+ps : source verse 151:7 has no KJV counterpart (dropped): ⲁⲛⲟⲕ ⲇⲉ ⲁⲓⲧⲉⲕⲙⲧⲉϥⲥⲏϥⲉ ⲛⲧⲟⲟⲧϥ ⲁⲓϥⲓ ⲛⲧⲉϥⲁⲡⲉ ⲁⲩⲱ ⲁⲓϥⲓ ⲛⲟⲩⲛⲟϭⲛⲉϭ ⲉⲃⲟⲗ ϩⲛ ⲛ

@@ -1,0 +1,79 @@
+﻿Psalm chapters renumbered from the Greek to the Hebrew numbering
+Psalm 3 : the first 2 source verses (title) folded into verse 1
+Psalm 4 : the first 2 source verses (title) folded into verse 1
+Psalm 5 : the first 2 source verses (title) folded into verse 1
+Psalm 6 : the first 2 source verses (title) folded into verse 1
+Psalm 7 : the first 2 source verses (title) folded into verse 1
+Psalm 8 : the first 2 source verses (title) folded into verse 1
+Psalm 9 : the first 2 source verses (title) folded into verse 1
+Psalm 12 : the first 2 source verses (title) folded into verse 1
+Psalm 13 : the first 2 source verses (title) folded into verse 1
+Psalm 18 : the first 2 source verses (title) folded into verse 1
+Psalm 19 : the first 2 source verses (title) folded into verse 1
+Psalm 20 : the first 2 source verses (title) folded into verse 1
+Psalm 21 : the first 2 source verses (title) folded into verse 1
+Psalm 22 : the first 2 source verses (title) folded into verse 1
+Psalm 30 : the first 2 source verses (title) folded into verse 1
+Psalm 31 : the first 2 source verses (title) folded into verse 1
+Psalm 34 : the first 2 source verses (title) folded into verse 1
+Psalm 36 : the first 2 source verses (title) folded into verse 1
+Psalm 38 : the first 2 source verses (title) folded into verse 1
+Psalm 39 : the first 2 source verses (title) folded into verse 1
+Psalm 40 : the first 2 source verses (title) folded into verse 1
+Psalm 41 : the first 2 source verses (title) folded into verse 1
+Psalm 42 : the first 2 source verses (title) folded into verse 1
+Psalm 44 : the first 2 source verses (title) folded into verse 1
+Psalm 45 : the first 2 source verses (title) folded into verse 1
+Psalm 46 : the first 2 source verses (title) folded into verse 1
+Psalm 47 : the first 2 source verses (title) folded into verse 1
+Psalm 48 : the first 2 source verses (title) folded into verse 1
+Psalm 49 : the first 2 source verses (title) folded into verse 1
+Psalm 51 : the first 3 source verses (title) folded into verse 1
+Psalm 52 : the first 3 source verses (title) folded into verse 1
+Psalm 53 : the first 2 source verses (title) folded into verse 1
+Psalm 54 : the first 3 source verses (title) folded into verse 1
+Psalm 55 : the first 2 source verses (title) folded into verse 1
+Psalm 56 : the first 2 source verses (title) folded into verse 1
+Psalm 57 : the first 2 source verses (title) folded into verse 1
+Psalm 58 : the first 2 source verses (title) folded into verse 1
+Psalm 59 : the first 2 source verses (title) folded into verse 1
+Psalm 60 : the first 3 source verses (title) folded into verse 1
+Psalm 61 : the first 2 source verses (title) folded into verse 1
+Psalm 62 : the first 2 source verses (title) folded into verse 1
+Psalm 63 : the first 2 source verses (title) folded into verse 1
+Psalm 64 : the first 2 source verses (title) folded into verse 1
+Psalm 65 : the first 2 source verses (title) folded into verse 1
+Psalm 67 : the first 2 source verses (title) folded into verse 1
+Psalm 68 : the first 2 source verses (title) folded into verse 1
+Psalm 69 : the first 2 source verses (title) folded into verse 1
+Psalm 70 : the first 2 source verses (title) folded into verse 1
+Psalm 75 : the first 2 source verses (title) folded into verse 1
+Psalm 76 : the first 2 source verses (title) folded into verse 1
+Psalm 77 : the first 2 source verses (title) folded into verse 1
+Psalm 80 : the first 2 source verses (title) folded into verse 1
+Psalm 81 : the first 2 source verses (title) folded into verse 1
+Psalm 83 : the first 2 source verses (title) folded into verse 1
+Psalm 84 : the first 2 source verses (title) folded into verse 1
+Psalm 85 : the first 2 source verses (title) folded into verse 1
+Psalm 88 : the first 2 source verses (title) folded into verse 1
+Psalm 89 : the first 2 source verses (title) folded into verse 1
+Psalm 92 : the first 2 source verses (title) folded into verse 1
+Psalm 102 : the first 2 source verses (title) folded into verse 1
+Psalm 108 : the first 2 source verses (title) folded into verse 1
+Psalm 140 : the first 2 source verses (title) folded into verse 1
+Psalm 142 : the first 2 source verses (title) folded into verse 1
+ps : source verse 150:1 has no KJV counterpart (dropped): αλληλουϊα αινειται τον θν εν τοιϲ αγιοιϲ αυτου αινειται αυτον εν ϲτερε
+ps : source verse 150:2 has no KJV counterpart (dropped): αινειται αυτον επι ταιϲ δυναϲτι αιϲ αυτου αινειται αυτον κατα το πληθο
+ps : source verse 150:3 has no KJV counterpart (dropped): αινειται αυτον εν ηχω ϲαλπιγγοϲ αινειται αυτον εν ψαλτηριω και κιθαρα
+ps : source verse 150:4 has no KJV counterpart (dropped): αινειται αυτον εν τυμπανω και χορω αινειται αυτον εν χορδαιϲ και οργαν
+ps : source verse 150:5 has no KJV counterpart (dropped): αινειται αυτον εν κυμβαλοιϲ ευηχοιοιϲ αινειται αυτον εν κυμβαλοιϲ αλαλ
+ps : source verse 150:6 has no KJV counterpart (dropped): παϲα πνοη αινεϲατω τον κν αλληλουια
+ps : source verse 151:1 has no KJV counterpart (dropped): ουτοϲ ο ψαλμοϲ ϊδιογραφοϲ ειϲ δαδ και εξωθεν του αριθμου οτε εμονομα χ
+ps : source verse 151:2 has no KJV counterpart (dropped): αι χειραιϲ μου εποιηϲαν οργανον οι δακτυλοι μου ηρμοϲαν ψαλτηριον
+ps : source verse 151:3 has no KJV counterpart (dropped): και τιϲ αναγγελλει τω κω μου αυτοϲ κϲ αυτοϲ παντων ειϲακουει
+ps : source verse 151:4 has no KJV counterpart (dropped): αυτοϲ εξαπεϲτιλεν τον αγ γελον αυτου και ηρεν με εκ των προβατων του π
+ps : source verse 151:5 has no KJV counterpart (dropped): οι αδελφοι μου καλοι και μεγαλοι και ουκ ευδοκηϲεν εν αυτοιϲ κϲ
+ps : source verse 151:6 has no KJV counterpart (dropped): εξηλθον ειϲ ϲυναντηϲιν τω αλλοφυλω και επικατηραϲατο με εν τοιϲ ϊδωλοι
+ps : source verse 151:7 has no KJV counterpart (dropped): εγω δε ϲπαϲαμενοϲ την παρ αυ του μαχαιραν απεκεφαλιϲα αυτον και ηρα ον
+
+Length check against C:\Users\david\OneDrive\Documents\moses_compare_native_app\translation-packs\reports\lxx-ref.tsv (threshold 0.45): left out

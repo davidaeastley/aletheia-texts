@@ -1,0 +1,4 @@
+﻿3john : source verse 1:15 has no KJV counterpart (added to the end of KJV 1:14): ειρηνη ϲοι αϲπα ζονται ϲε οι φιλοι αϲπαϲαι τουϲ φι λουϲ κατ ονο μα
+rev : source verse 12:18 has no KJV counterpart (added to the end of KJV 12:17): και ε ϲταθη επι την αμμον τηϲ θαλαϲ ϲηϲ
+
+Length check against C:\Users\david\OneDrive\Documents\moses_compare_native_app\translation-packs\reports\grk-ref.tsv (threshold 0.45): left out

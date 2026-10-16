@@ -9,7 +9,7 @@ $ser = New-Object System.Web.Script.Serialization.JavaScriptSerializer; $ser.Max
 $root = "$PSScriptRoot\.."
 $j = $ser.DeserializeObject([IO.File]::ReadAllText("$root\neutral\$Id.json", [Text.Encoding]::UTF8)); $meta = $j['meta']; $src = $j['books']
 $kset = New-Object 'System.Collections.Generic.HashSet[string]' (, [IO.File]::ReadAllLines("$root\reports\kjv-keys.txt"))
-$out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $extra = @(); $stars = 0
+$out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $extra = @(); $stars = 0; $mt = New-Object System.Collections.ArrayList   # $mt: which English verses each source (Hebrew-numbered) verse supplies, for reports/mt-to-kjv.tsv
 foreach ($b in $src.Keys) {
   $acc = @{}   # "c:v" -> text parts, in order
   $ptr = @{}
@@ -20,6 +20,7 @@ foreach ($b in $src.Keys) {
       $t = [string]$src[$b][$c][$v]
       if ($t.StartsWith('*')) { $stars++; [void]$report.Add("$b ${c}:$v repeats the verse before it (skipped)"); continue }
       $parts = [regex]::Split($t, '(\[[^\]]*\])')   # text, marker, text, marker, text ...
+      $vk = New-Object System.Collections.ArrayList
       $key = if ($null -ne $lastV) { "${c}:$($lastV + 1)" } else { "${c}:$v" }   # text before any marker follows the previous verse's English number
       $lastV = [int]$key.Split(':')[1]   # (it moves on when a marker names another verse)
       for ($i = 0; $i -lt $parts.Count; $i++) {
@@ -28,14 +29,15 @@ foreach ($b in $src.Keys) {
           $m = $p.Trim('[', ']')
           if ($m -match '^0+$') { $key = 'TITLE'; $lastV = 0 }
           elseif ($m -match '^(\d+):(\d+)b?$') { $key = "$($Matches[1]):$($Matches[2])"; $lastV = [int]$Matches[2] }
-          elseif ($m -match '^(\d+)-(\d+)$') { $a = [int]$Matches[1]; $z = [int]$Matches[2]; $key = "${c}:$a"; for ($q = $a + 1; $q -le $z; $q++) { $ptr["${c}:$q"] = $a }; $lastV = $z }
+          elseif ($m -match '^(\d+)-(\d+)$') { $a = [int]$Matches[1]; $z = [int]$Matches[2]; $key = "${c}:$a"; for ($q = $a + 1; $q -le $z; $q++) { $ptr["${c}:$q"] = $a; if (-not $vk.Contains("${c}:$q")) { [void]$vk.Add("${c}:$q") } }; $lastV = $z }
           elseif ($m -match '^(\d+)[ab]?$') { $key = "${c}:$($Matches[1])"; $lastV = [int]$Matches[1] }
           else { [void]$report.Add("$b ${c}:$v unknown marker $p") }
         }
         else {
-          if ($key -eq 'TITLE') { [void]$titles.Add($p.Trim()) } else { & $add $key $p }
+          if ($key -eq 'TITLE') { if ($p.Trim()) { [void]$titles.Add($p.Trim()); if (-not $vk.Contains("${c}:1")) { [void]$vk.Add("${c}:1") } } } else { & $add $key $p; if ($p.Trim() -and -not $vk.Contains($key)) { [void]$vk.Add($key) } }
         }
       }
+      if ($vk.Count) { [void]$mt.Add("$b	$c	$v	$($vk -join ',')") }
     }
     if ($titles.Count) { $k1 = "${c}:1"; if (-not $acc.ContainsKey($k1)) { $acc[$k1] = New-Object System.Collections.ArrayList }; $acc[$k1].Insert(0, ($titles -join ' ').Trim()) }
   }
@@ -52,6 +54,7 @@ foreach ($b in $src.Keys) {
     $book['13']['14'] = $book['13']['13']; $book['13']['13'] = '^12'; [void]$report.Add('2cor 13:13 is English verse 14; English 13 is part of verse 12') }
   $out[$b] = $book
 }
+[IO.File]::WriteAllLines("$root\reports\mt-to-kjv.tsv", $mt, (New-Object Text.UTF8Encoding($false)))
 $m2 = [ordered]@{}; foreach ($k in $meta.Keys) { $m2[$k] = $meta[$k] }; $m2['numbering'] = 'kjv'; $m2['alignedFrom'] = 'English verse markers in the text'
 Write-NeutralJson "$root\aligned\$Id.json" $m2 $out
 $have = New-Object 'System.Collections.Generic.HashSet[string]'; foreach ($b in $out.Keys) { foreach ($c in $out[$b].Keys) { foreach ($v in $out[$b][$c].Keys) { [void]$have.Add("${b}:${c}:${v}") } } }

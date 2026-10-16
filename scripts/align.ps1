@@ -1,4 +1,4 @@
-param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf, [string]$RefTsv = '', [double]$KeyBonus = -1, [switch]$ChapterBlocks, [switch]$GapsOnly)   # -ChapterBlocks: see below. -GapsOnly (with -ChapterBlocks): a chapter whose verse numbers are all KJV verse numbers maps by number even if the source leaves some verses out (BSB, NRSVue)   # -KeyBonus: how strongly to trust identical chapter:verse numbers (default 0.15; 0 with -Idf). Use about 0.5 with -Idf for a source that is nearly in KJV numbering   # -RefTsv: align to this tsv (book, chapter, verse, text) instead of the KJV; a ...-pointers.tsv beside it restores its merged-verse pointers. For a Latin source, the Clementine Vulgate   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
+param([Parameter(Mandatory)][string]$Id, [switch]$RestrictToSourceChapters, [switch]$Idf, [string]$RefTsv = '', [double]$KeyBonus = -1, [switch]$ChapterBlocks, [switch]$GapsOnly, [switch]$KeepNumbers, [switch]$DropUnmatched)   # -DropUnmatched: a chapter that cannot be matched by verse number is left out instead of being aligned by length (for a text with many gaps, where length alignment would misplace verses)   # -KeepNumbers (with -GapsOnly): never re-align a chapter whose verse numbers are all KJV numbers, even if it ends early (a source that is numbered like the KJV and leaves verses out)   # -ChapterBlocks: see below. -GapsOnly (with -ChapterBlocks): a chapter whose verse numbers are all KJV verse numbers maps by number even if the source leaves some verses out (BSB, NRSVue)   # -KeyBonus: how strongly to trust identical chapter:verse numbers (default 0.15; 0 with -Idf). Use about 0.5 with -Idf for a source that is nearly in KJV numbering   # -RefTsv: align to this tsv (book, chapter, verse, text) instead of the KJV; a ...-pointers.tsv beside it restores its merged-verse pointers. For a Latin source, the Clementine Vulgate   # -Idf: the source is not English, so weight rare character trigrams (names, numbers) higher   # -Restrict...: for partly transcribed texts, align only against the KJV chapters the source has
 # Re-keys a translation to the KJV verse numbering the app uses, so every column lines up.
 # neutral/<id>.json (the source's own numbering) -> aligned/<id>.json
 . "$PSScriptRoot\lib.ps1"
@@ -80,7 +80,7 @@ if ($meta['numbering'] -eq 'vulgate') {
     }
   }
 }# Synodal and Vulgate Psalms use the Greek (Septuagint) psalm numbers: bring the chapters to the Hebrew numbers the KJV uses (9 holds Hebrew 9 and 10, 113 holds 114 and 115, 114 and 115 are one psalm, 146 and 147 are one psalm); a chapter that holds two Hebrew psalms is aligned against both
-if (@('synodal', 'vulgate') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
+if (@('synodal', 'vulgate', 'lxx') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
   $old = $src['ps']; $nw = [ordered]@{}
   $add = { param($to, $from, $offset) if (-not $nw.Contains($to)) { $nw[$to] = [ordered]@{} }; foreach ($v in @($old[$from].Keys | Sort-Object { [int]$_ })) { $nw[$to][[string]([int]$v + $offset)] = $old[$from][$v] } }
   foreach ($c in @($old.Keys | Sort-Object { [int]$_ })) {
@@ -102,7 +102,7 @@ if (@('synodal', 'vulgate') -contains $meta['numbering'] -and $src.ContainsKey('
   $src['ps'] = $nw; [void]$notes.Add('Psalm chapters renumbered from the Greek to the Hebrew numbering')
 }
 # German (Luther) Psalms count the title as verse 1 (or 1 and 2): fold the title verses into the first verse, so that the rest follow the KJV verse for verse
-if (@('german', 'synodal', 'hebrew', 'vulgate') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
+if (@('german', 'synodal', 'hebrew', 'vulgate', 'lxx') -contains $meta['numbering'] -and $src.ContainsKey('ps')) {
   $kc = @{}; foreach ($c in $ref['ps'].Keys) { $kc[$c] = $ref['ps'][$c].Count }
   foreach ($c in @($src['ps'].Keys)) {
     if ($null -eq $kc[$c] ) { continue }
@@ -113,6 +113,8 @@ if (@('german', 'synodal', 'hebrew', 'vulgate') -contains $meta['numbering'] -an
   }
 }
 foreach ($k in @($src.Keys)) { if ($src[$k].Count -eq 0) { [void]$src.Remove($k) } }   # moves can leave an empty target book
+# the verse numbers the KJV has, per chapter (for -GapsOnly)
+$script:kjvChap = @{}; if ($GapsOnly) { foreach ($ln in [IO.File]::ReadAllLines("$root\reports\kjv-keys.txt")) { $q = $ln.Split(':'); $kk = "$($q[0]):$($q[1])"; if (-not $script:kjvChap.ContainsKey($kk)) { $script:kjvChap[$kk] = New-Object 'System.Collections.Generic.HashSet[string]' }; [void]$script:kjvChap[$kk].Add($q[2]) } }
 # ---- align book by book ----
 $out = [ordered]@{}; $report = New-Object System.Collections.ArrayList; $summary = @()
 foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
@@ -129,15 +131,15 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
       $rCh = @{}; for ($i = 0; $i -lt $R.Count; $i++) { $c = [int]$R[$i].c; if (-not $rCh.ContainsKey($c)) { $rCh[$c] = @($i, $i) } else { $rCh[$c][1] = $i } }
       $chs = @(@($sCh.Keys) + @($rCh.Keys) | Sort-Object -Unique)
       $same = @{}
-      foreach ($c in $chs) { $ok = $sCh.ContainsKey($c) -and $rCh.ContainsKey($c) -and ($sCh[$c][1] - $sCh[$c][0]) -eq ($rCh[$c][1] - $rCh[$c][0]); if ($ok) { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { if ($S[$sCh[$c][0] + $x].v -ne $R[$rCh[$c][0] + $x].v) { $ok = $false; break } } }; if ($GapsOnly -and $sCh.ContainsKey($c) -and $rCh.ContainsKey($c)) { $rv = @{}; for ($i = $rCh[$c][0]; $i -le $rCh[$c][1]; $i++) { $rv[[string]$R[$i].v] = $i }; $ok = $true; $nn = $sCh[$c][1] - $sCh[$c][0] + 1; $contig = $true; for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { if (-not $rv.ContainsKey([string]$S[$i].v)) { $ok = $false; break }; if ([int]$S[$i].v -ne ($i - $sCh[$c][0] + 1)) { $contig = $false } }
+      foreach ($c in $chs) { $ok = $sCh.ContainsKey($c) -and $rCh.ContainsKey($c) -and ($sCh[$c][1] - $sCh[$c][0]) -eq ($rCh[$c][1] - $rCh[$c][0]); if ($ok) { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { if ($S[$sCh[$c][0] + $x].v -ne $R[$rCh[$c][0] + $x].v) { $ok = $false; break } } }; if ($GapsOnly -and $sCh.ContainsKey($c) -and $script:kjvChap.ContainsKey("${bid}:$c")) { $rv = $script:kjvChap["${bid}:$c"]; $ok = $true; $nn = $sCh[$c][1] - $sCh[$c][0] + 1; $contig = $true; for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { if (-not $rv.Contains([string]$S[$i].v)) { $ok = $false; break }; if ([int]$S[$i].v -ne ($i - $sCh[$c][0] + 1)) { $contig = $false } }
     # numbers 1..n with n below the KJV count: a source that merged verses (everything after the merge is renumbered, so align it) unless a long stretch is missing (the text is cut short, so map by number)
-    if ($ok -and $contig -and $nn -lt $rv.Count -and ($rv.Count - $nn) -lt 10) { $ok = $false } }; $same[$c] = $ok }
+    if ($ok -and $contig -and $nn -lt $rv.Count -and ($rv.Count - $nn) -lt 10 -and -not $KeepNumbers) { $ok = $false } }; $same[$c] = $ok }
       $inBlock = @{}; for ($k = 0; $k -lt $chs.Count; $k++) { $c = $chs[$k]; $inBlock[$c] = (-not $same[$c]) -or ($k -gt 0 -and -not $same[$chs[$k - 1]]) -or ($k -lt $chs.Count - 1 -and -not $same[$chs[$k + 1]]) }
-      $segs = New-Object System.Collections.ArrayList; $k = 0
+      $segs = New-Object System.Collections.ArrayList; $direct = New-Object System.Collections.ArrayList; $k = 0
       while ($k -lt $chs.Count) {
         $c = $chs[$k]
         if (-not $inBlock[$c]) {
-          if ($GapsOnly) { $rv = @{}; for ($i = $rCh[$c][0]; $i -le $rCh[$c][1]; $i++) { $rv[[string]$R[$i].v] = $i }; for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { [void]$segs.Add([int[]]@($i, 1, $rv[[string]$S[$i].v], 1, 0)) } }
+          if ($GapsOnly -and $script:kjvChap.ContainsKey("${bid}:$c")) { for ($i = $sCh[$c][0]; $i -le $sCh[$c][1]; $i++) { [void]$direct.Add(@("${c}:$($S[$i].v)", $S[$i].t)) } }   # every verse number is a KJV verse number: it goes under that number
           else { for ($x = 0; $x -le $sCh[$c][1] - $sCh[$c][0]; $x++) { [void]$segs.Add([int[]]@(($sCh[$c][0] + $x), 1, ($rCh[$c][0] + $x), 1, 0)) } }
           $k++; continue }
         $e = $k; while ($e + 1 -lt $chs.Count -and $inBlock[$chs[$e + 1]]) { $e++ }
@@ -145,6 +147,7 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
         for ($m = $k; $m -le $e; $m++) { $cc = $chs[$m]; if ($sCh.ContainsKey($cc)) { if ($null -eq $sa) { $sa = $sCh[$cc][0] }; $sb = $sCh[$cc][1] }; if ($rCh.ContainsKey($cc)) { if ($null -eq $ra) { $ra = $rCh[$cc][0] }; $rb = $rCh[$cc][1] } }
         if ($null -eq $sa) { $k = $e + 1; continue }
         if ($null -eq $ra) { for ($x = $sa; $x -le $sb; $x++) { [void]$segs.Add([int[]]@($x, 1, $R.Count, 0, 0)) }; $k = $e + 1; continue }
+        if ($DropUnmatched) { for ($x = $sa; $x -le $sb; $x++) { [void]$segs.Add([int[]]@($x, 1, $R.Count, 0, 0)) }; $k = $e + 1; continue }
         $SS = @($S[$sa..$sb]); $RR = @($R[$ra..$rb])
         $sub = [Aligner]::Align([string[]]($SS | % { $_.k }), [string[]]($SS | % { $_.t }), [string[]]($RR | % { $_.k }), [string[]]($RR | % { $_.t }))
         foreach ($sg in $sub) { [void]$segs.Add([int[]]@(($sg[0] + $sa), $sg[1], ($sg[2] + $ra), $sg[3], $sg[4])) }
@@ -161,7 +164,7 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
       $dropped += $p
       for ($x = 0; $x -lt $p; $x++) {
         $dv = $S[$si + $x]; $where = 'dropped'
-        if ($lastKey) { $lc, $lv = $lastKey.Split(':'); $cur = [string]$bookOut[$lc][$lv]; if ($cur -and -not $cur.StartsWith('^')) { $bookOut[$lc][$lv] = $cur + ' ' + $dv.t; $where = "added to the end of KJV $lastKey" } }   # the text is kept: it joins the verse before it
+        if ($lastKey -and -not $DropUnmatched) { $lc, $lv = $lastKey.Split(':'); $cur = [string]$bookOut[$lc][$lv]; if ($cur -and -not $cur.StartsWith('^')) { $bookOut[$lc][$lv] = $cur + ' ' + $dv.t; $where = "added to the end of KJV $lastKey" } }   # the text is kept: it joins the verse before it
         [void]$report.Add("$bid : source verse $($dv.k) has no KJV counterpart ($where): $($dv.t.Substring(0, [Math]::Min(70, $dv.t.Length)))")
       }
       continue
@@ -175,6 +178,7 @@ foreach ($bid in ($src.Keys | Sort-Object { $order[$_] })) {
     for ($x = 1; $x -lt $q; $x++) { $t = $R[$ri + $x]; $ptr = if ($t.c -eq $first.c) { '^' + $first.v } else { '^' + $first.k }; & $put $t.k $ptr }
     $split++; [void]$report.Add("$bid : source $($S[$si].k) covers KJV $($first.k)..$($R[$ri + $q - 1].k)")
   }
+  if ($direct.Count) { foreach ($dd in $direct) { & $put $dd[0] $dd[1] }; $direct.Clear() }
   if ($refPtr.ContainsKey($bid)) { foreach ($q in $refPtr[$bid]) { if (-not $bookOut.Contains($q[1]) -or -not $bookOut[$q[1]].Contains($q[2])) { & $put "$($q[1]):$($q[2])" $q[3] } } }   # merged verses of the reference stay merged
   $out[$bid] = $bookOut
   $summary += ("{0,-8} source {1,5} ref {2,5}  merges {3,3} splits {4,3} dropped {5,3} ref-only {6,3} swaps {7,3}" -f $bid, $S.Count, $R.Count, $merged, $split, $dropped, $empty, $swapped)
