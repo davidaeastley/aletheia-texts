@@ -31,6 +31,7 @@ All verse numbers follow the KJV numbering the app uses, so columns line up. A v
 | textus-receptus | Textus Receptus, Scrivener's 1894 edition, Greek New Testament, accented and punctuated | [github.com/honza/textus-receptus](https://github.com/honza/textus-receptus) (data/gnt.flat.json; the greek_text of each verse). The authors give the data free of charge without any limitation on use and ask for credit. Already in KJV numbering (copy-aligned.ps1); read by parse-tr-honza.ps1. |
 | douay-rheims-challoner | Douay-Rheims, Challoner revision (modernized spelling), 66 books + Apocrypha | Project Gutenberg #8300. Public domain. |
 | kjv (apoc) | King James Version 1769, Apocrypha | eBible.org `eng-kjv`. Public domain (the KJV has a crown printing right in the UK only). |
+| nrsvue (apoc) | New Revised Standard Version Updated Edition, Apocrypha (Tobit, Judith, Wisdom, Sirach, Baruch with the Letter of Jeremiah, the Song of the Three, Susanna, Bel, 1-4 Maccabees, 1-2 Esdras, the Prayer of Manasseh, Psalm 151) | Copyright 2021 National Council of the Churches of Christ in the USA. Published here at the repository owner's request; the copyright holder keeps all rights. The NRSVue Old and New Testament are not published. |
 
 ## Rebuilding (PowerShell only)
 

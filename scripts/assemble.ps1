@@ -9,10 +9,11 @@ $out = "$PSScriptRoot\..\packs"; New-Item -ItemType Directory -Force "$out\bible
 $entries = @()
 $noApoc = @('ru-synodal')   # packs whose Apocrypha is not published: the Russian one cannot be placed against the English KJV Apocrypha (different alphabet)
 $withheld = @('great')   # not published: the Great Bible transcription came from a site whose terms do not allow it to be stored elsewhere (see README)
-$baseBuildOnly = @('nrsvue', 'nrsvue-apoc', 'bsb')   # shipped inside the app only; NRSVue is copyrighted and must never be published here
+$baseBuildOnly = @('nrsvue', 'bsb')   # shipped inside the app only. (The NRSVue Apocrypha, aligned/nrsvue-apoc.json, is published at the owner's request as the pack "nrsvue"; the NRSVue Bible is not.)
 foreach ($f in (Get-ChildItem "$PSScriptRoot\..\aligned\*.json")) {
   if ($baseBuildOnly -contains $f.BaseName -or $withheld -contains $f.BaseName) { continue }
   $j = $ser.DeserializeObject([IO.File]::ReadAllText($f.FullName)); $meta = $j['meta']; $id = $meta['id']
+  if ($id -eq 'nrsvue-apoc') { $id = 'nrsvue'; $meta['id'] = 'nrsvue'; $meta['license'] = 'Copyright 2021 National Council of the Churches of Christ in the USA. The copyright holder keeps all rights.' }
   foreach ($kind in 'bible', 'apoc') {
     if ($noApoc -contains $id -and $kind -eq 'apoc') { continue }
     if ($id -eq 'kjv' -and $kind -eq 'bible') { continue }   # the app already contains the KJV; only its Apocrypha is published

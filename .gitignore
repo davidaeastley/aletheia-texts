@@ -4,7 +4,7 @@ aligned/
 reports/kjv-*.tsv
 reports/kjv-keys.txt
 reports/*-neutral.json
-# NRSVue is copyrighted and must never go in this public repository
+# NRSVue working files (only the Apocrypha pack packs/apoc/nrsvue.json is published; the NRSVue Old and New Testament must not be)
 reports/nrsvue-*
 reports/bsb-alignment*
 # local-only builds of copyrighted texts (never commit)
