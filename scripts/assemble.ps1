@@ -37,6 +37,13 @@ foreach ($f in (Get-ChildItem "$out\dict\*.json" -ErrorAction SilentlyContinue))
   $entries += [pscustomobject]@{ id = $meta['id']; kind = 'dict'; name = $meta['name']; year = $meta['year']; license = $meta['license']; file = "dict/$($f.Name)"; bytes = $f.Length; sha256 = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower(); books = @(); verses = @($j['entries']).Count }
   "{0,-26} dict  {1,6} entries {2,9} bytes" -f $meta['id'], @($j['entries']).Count, $f.Length
 }
+# the Pseudepigrapha (packs\pseud\ps-<text>.json, made by Aletheia\tools\pseud): one pack of kind "apoc" for each text, so the app can download it.
+# A pack made from a copyrighted source goes in private\pseud instead and is not listed here.
+foreach ($f in (Get-ChildItem "$out\pseud\ps-*.json" -ErrorAction SilentlyContinue)) {
+  $j = $ser.DeserializeObject([IO.File]::ReadAllText($f.FullName)); $meta = $j['meta']; $nv = 0; foreach ($b in $j['books'].Values) { foreach ($c in $b.Values) { $nv += $c.Count } }
+  $entries += [pscustomobject]@{ id = $meta['id']; kind = 'apoc'; name = $meta['name']; year = $meta['year']; license = $meta['license']; file = "pseud/$($f.Name)"; bytes = $f.Length; sha256 = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower(); books = @($j['books'].Keys); verses = $nv }
+  "{0,-26} pseud {1,6} verses {2,9} bytes" -f $meta['id'], $nv, $f.Length
+}
 $sb = New-Object Text.StringBuilder; [void]$sb.Append("{`n""version"": 1,`n""packs"": [`n")
 for ($k = 0; $k -lt $entries.Count; $k++) { $e = $entries[$k]
   [void]$sb.Append('  {"id": ' + (JsonStr $e.id) + ', "kind": ' + (JsonStr $e.kind) + ', "name": ' + (JsonStr $e.name) + ', "year": ' + (JsonStr $e.year) + ', "license": ' + (JsonStr $e.license) + ', "file": ' + (JsonStr $e.file) + ', "bytes": ' + $e.bytes + ', "sha256": ' + (JsonStr $e.sha256) + ', "verses": ' + $e.verses + ', "books": [' + (($e.books | % { '"' + $_ + '"' }) -join ',') + ']}')
