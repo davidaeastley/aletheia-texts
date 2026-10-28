@@ -44,8 +44,27 @@ foreach ($f in (Get-ChildItem "$out\pseud\ps-*.json" -ErrorAction SilentlyContin
   $entries += [pscustomobject]@{ id = $meta['id']; kind = 'apoc'; name = $meta['name']; year = $meta['year']; license = $meta['license']; file = "pseud/$($f.Name)"; bytes = $f.Length; sha256 = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower(); books = @($j['books'].Keys); verses = $nv }
   "{0,-26} pseud {1,6} verses {2,9} bytes" -f $meta['id'], $nv, $f.Length
 }
+# Other downloads: grammars, interlinear, the church-history map (with its terrain and boundaries) and the Bible Quiz. Their files are made elsewhere; they are only listed here.
+$others = @(
+  @('grammar', 'hebrew-alfred', 'grammar/hebrew-alfred.json', 'Simplified Hebrew Grammar by Justin Alfred', 'Freely available from Justin Alfred through Blue Letter Bible'),
+  @('grammar', 'greek-alfred', 'grammar/greek-alfred.json', 'Simplified Greek Grammar by Justin Alfred', 'Freely available from Justin Alfred through Blue Letter Bible'),
+  @('interlinear', 'bsb-interlinear', 'interlinear/bsb.json', 'Interlinear - BSB (Old Testament)', 'Berean Bible translation tables (berean.bible); the BSB is in the public domain'),
+  @('interlinear', 'bsb-interlinear-nt', 'interlinear/bsb-nt.json', 'Interlinear - BSB (New Testament)', 'Berean Bible translation tables (berean.bible); the BSB is in the public domain'),
+  @('map', 'church-map', 'map/church-map.json', 'Interactive Map of Church History', 'Places: OpenBible.info Bible Geocoding Data (CC BY 4.0) and the Doctrine and Covenants places compiled for Aletheia; base map: Natural Earth (public domain); Leaflet (BSD-2-Clause)'),
+  @('map-terrain', 'church-map-terrain', 'map/terrain.json', 'Interactive Map of Church History - terrain', 'Natural Earth I with shaded relief (public domain)'),
+  @('map-bounds', 'church-map-bounds', 'map/bounds.json', 'Interactive Map of Church History - boundaries', 'Old World kingdom boundaries compiled for Aletheia from general historical knowledge (approximate); US state and territory boundaries: Atlas of Historical County Boundaries, Newberry Library (CC BY-NC-SA 2.5), generalised; land: Natural Earth (public domain)'),
+  @('quiz', 'bible-quiz', 'quiz/bible-quiz.json', 'Bible Quiz', 'Questions and explanations from Bible Hub (biblehub.com/trivia)')
+)
+foreach ($o in $others) {
+  $f = Get-Item "$out\$($o[2])" -ErrorAction SilentlyContinue; if (-not $f) { continue }
+  $e = [ordered]@{ id = $o[1]; kind = $o[0]; name = $o[3]; year = ''; license = $o[4]; file = $o[2]; bytes = $f.Length; sha256 = (Get-FileHash $f.FullName -Algorithm SHA256).Hash.ToLower() }
+  if ($o[0] -eq 'grammar') { $e['modules'] = @($ser.DeserializeObject([IO.File]::ReadAllText($f.FullName))['modules'].Keys) }
+  if ($o[0] -eq 'interlinear') { $e['books'] = @($ser.DeserializeObject([IO.File]::ReadAllText($f.FullName))['books'].Keys) }
+  $entries += [pscustomobject]$e
+  "{0,-26} {1,-11} {2,9} bytes" -f $o[1], $o[0], $f.Length
+}
 $sb = New-Object Text.StringBuilder; [void]$sb.Append("{`n""version"": 1,`n""packs"": [`n")
 for ($k = 0; $k -lt $entries.Count; $k++) { $e = $entries[$k]
-  [void]$sb.Append('  {"id": ' + (JsonStr $e.id) + ', "kind": ' + (JsonStr $e.kind) + ', "name": ' + (JsonStr $e.name) + ', "year": ' + (JsonStr $e.year) + ', "license": ' + (JsonStr $e.license) + ', "file": ' + (JsonStr $e.file) + ', "bytes": ' + $e.bytes + ', "sha256": ' + (JsonStr $e.sha256) + ', "verses": ' + $e.verses + ', "books": [' + (($e.books | % { '"' + $_ + '"' }) -join ',') + ']}')
+  [void]$sb.Append('  {"id": ' + (JsonStr $e.id) + ', "kind": ' + (JsonStr $e.kind) + ', "name": ' + (JsonStr $e.name) + ', "year": ' + (JsonStr $e.year) + ', "license": ' + (JsonStr $e.license) + ', "file": ' + (JsonStr $e.file) + ', "bytes": ' + $e.bytes + ', "sha256": ' + (JsonStr $e.sha256) + $(if ($null -ne $e.verses) { ', "verses": ' + $e.verses } else { '' }) + $(if ($null -ne $e.books) { ', "books": [' + (($e.books | % { '"' + $_ + '"' }) -join ',') + ']' } else { '' }) + $(if ($null -ne $e.modules) { ', "modules": [' + (($e.modules | % { '"' + $_ + '"' }) -join ',') + ']' } else { '' }) + '}')
   if ($k -lt $entries.Count - 1) { [void]$sb.Append(",`n") } }
 [void]$sb.Append("`n]`n}`n"); [IO.File]::WriteAllText("$out\manifest.json", $sb.ToString(), (New-Object Text.UTF8Encoding($false)))
