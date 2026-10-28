@@ -1,0 +1,9 @@
+{
+"meta": {"id": "ps-throne", "name": "Geza Vermes, from The Other Bible", "year": "1975", "source": "Barnstone and Meyer, eds., The Other Bible (1984)", "license": "Copyright the translators and publishers; text as printed in The Other Bible (1984), published here by the repository owner's decision", "note": "The Divine Throne-Chariot (Songs of the Sabbath Sacrifice), translated by Geza Vermes (The Dead Sea Scrolls in English, 1975), as printed in The Other Bible.", "kind": "apoc", "group": "pseud", "books": "throne"},
+"books": {
+"throne": {"1": {"1": "... the ministers of the Glorious Face in the abode of the gods of knowledge fall down before him, and the cherubim utter blessings. And as they rise up, there is a divine small voice and loud praise; there is a divine small voice as they fold their wings.", "2": "The cherubim bless the image of the Throne-Chariot above the firmament, and they praise the majesty of the fiery firmament beneath the seat of his glory. And between the turning wheels, angels of holiness come and go, as it were a fiery vision of most holy spirits; and about them flow seeming rivulets of fire, like gleaming bronze, a radiance of many gorgeous colors, of marvelous pigments magnificently mingled.", "3": "The spirits of the Living God move perpetually with the glory of the wonderful Chariot. The small voice of blessing accompanies the tumult as they depart, and on the path of their return they worship the Holy One. Ascending, they rise marvelously; settling, they stay still. The sound of joyful praise is silenced and there is a small voice of blessing in all the camp of God. And a voice of praise resounds from the midst of all their divisions in worship. And each one in his place, all their numbered ones sing hymns of praise."}}
+},
+"titles": {
+"throne": {"1": "The Divine Throne-chariot"}
+}
+}
