@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get Aletheia</title>
+<style>
+  body { margin: 0; background: #1c1a16; color: #f0e6d2; font-family: Georgia, serif; line-height: 1.55; }
+  main { max-width: 30rem; margin: 0 auto; padding: 8vh 24px; text-align: center; }
+  h1 { color: #e5b84b; font-weight: normal; letter-spacing: .04em; }
+  a.btn { display: block; margin: 14px 0; padding: 16px; border: 1px solid #5a523f; border-radius: 10px; color: #f0e6d2; text-decoration: none; font-size: 1.1rem; }
+  p.soft { color: #cdbd9b; font-size: .92rem; }
+</style>
+</head>
+<body>
+<main id="m">
+  <h1>Aletheia</h1>
+  <p id="msg">Choose your phone:</p>
+  <a class="btn" id="android" href="https://github.com/davidaeastley/aletheia-texts/releases/download/android-test/Aletheia-test.apk">Android: download the app</a>
+  <a class="btn" id="ios" href="#">iPhone and iPad: TestFlight</a>
+  <p class="soft" id="note"></p>
+</main>
+<script>
+// A QR code in Aletheia (Preferences > Share App) points here; the page sends each phone to its own download.
+var ANDROID = document.getElementById('android').href;
+var TESTFLIGHT = 'https://testflight.apple.com/join/sAwsRyGE';   // the public TestFlight link (https://testflight.apple.com/join/...), once there is one
+var ua = navigator.userAgent || '';
+var isIos = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/i.test(ua) && navigator.maxTouchPoints > 1);
+var isAndroid = /Android/i.test(ua);
+var ios = document.getElementById('ios'), note = document.getElementById('note'), msg = document.getElementById('msg');
+if (TESTFLIGHT) ios.href = TESTFLIGHT;
+else { ios.removeAttribute('href'); ios.style.opacity = '.55'; ios.textContent = 'iPhone and iPad: TestFlight (by invitation)'; }
+if (isAndroid) { msg.textContent = 'Downloading Aletheia for Android…'; location.replace(ANDROID); note.textContent = 'If nothing happens, tap the button above. Android asks to allow installing from your browser the first time.'; }
+else if (isIos) {
+  if (TESTFLIGHT) { msg.textContent = 'Opening TestFlight…'; location.replace(TESTFLIGHT); note.textContent = 'You need Apple’s free TestFlight app. If nothing happens, tap the button above.'; }
+  else { msg.textContent = 'The iPhone version is shared through TestFlight.'; note.textContent = 'There is no public link yet. Ask for an invitation.'; }
+}
+</script>
+<noscript><p>Android: <a href="https://github.com/davidaeastley/aletheia-texts/releases/download/android-test/Aletheia-test.apk">download the app</a></p></noscript>
+</body>
+</html>
