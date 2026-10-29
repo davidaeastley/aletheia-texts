@@ -1,0 +1,9 @@
+{
+"meta": {"id": "ps-pf021", "name": "Pseudo-Ignatius", "year": "350", "source": "Wikisource: Ante-Nicene Fathers/Volume I/Epistle to Mary the Virgin (Ante-Nicene Fathers / Nicene and Post-Nicene Fathers, ed. Philip Schaff et al.)", "license": "Public domain", "note": "One chapter for each section of the text, one verse for each paragraph.", "kind": "apoc", "group": "pseud", "books": "pf021"},
+"books": {
+"pf021": {"1": {"1": "The Epistle of Ignatius to the Virgin Mary", "2": "Her friend Ignatius to the Christ-bearing Mary.", "3": "Thou oughtest to have comforted and consoled me who am a neophyte, and a disciple of thy [beloved] John. For I have heard things wonderful to tell respecting thy [son] Jesus, and I am astonished by such a report. But I desire with my whole heart to obtain information concerning the things which I have heard from thee, who wast always intimate and allied with Him, and who wast acquainted with [all] His secrets. I have also written to thee at another time, and have asked thee concerning the same things. Fare thou well; and let the neophytes who are with me be comforted of thee, and by thee, and in thee. Amen."}}
+},
+"titles": {
+"pf021": {"1": "Epistle to Mary the Virgin"}
+}
+}
