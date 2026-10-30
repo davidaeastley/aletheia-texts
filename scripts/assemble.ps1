@@ -54,7 +54,9 @@ $others = @(
   @('map-terrain', 'church-map-terrain', 'map/terrain.json', 'Interactive Map of Church History - terrain', 'Natural Earth I with shaded relief (public domain)'),
   @('map-bounds', 'church-map-bounds', 'map/bounds.json', 'Interactive Map of Church History - boundaries', 'Old World kingdom boundaries compiled for Aletheia from general historical knowledge (approximate); US state and territory boundaries: Atlas of Historical County Boundaries, Newberry Library (CC BY-NC-SA 2.5), generalised; land: Natural Earth (public domain)'),
   @('quiz', 'bible-quiz', 'quiz/bible-quiz.json', 'Bible Quiz', 'Questions and explanations from Bible Hub (biblehub.com/trivia)'),
-  @('jod', 'jod', 'jod/jod.json', 'The Journal of Discourses', 'The text is in the public domain; the details of each discourse are CC0 (jod.mrm.org)')
+  @('jod', 'jod', 'jod/jod.json', 'The Journal of Discourses', 'The text is in the public domain; the details of each discourse are CC0 (jod.mrm.org)'),
+
+  @('comm', 'comm-clarke', 'comm/clarke.json', 'Clarke, Commentary and Critical Notes on the Bible', 'Public-domain work; the text is from Wikisource (CC BY-SA 4.0) and this file is shared under CC BY-SA 4.0')
 )
 foreach ($o in $others) {
   $f = Get-Item "$out\$($o[2])" -ErrorAction SilentlyContinue; if (-not $f) { continue }
